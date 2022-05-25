@@ -1,3 +1,4 @@
+import datetime
 import re
 
 
@@ -18,6 +19,45 @@ def to_camel_case(name: str, separator: str ='_'):
                 if (len(s) > 1):
                     r += s[1:]
     return r
+
+
+def to_interest_rate(val: str) -> float:
+    """Converts passed value to an interest rate.
+
+    :returns: An interest rate.
+
+    """
+    return float(val) / 100
+
+
+def to_iso_datetime(val: str) -> datetime.datetime:
+    """Converts passed value to an ISO date time.
+
+    :param val: A character encoded representation of an ISO date time.
+    :returns: An ISO compliant datetime.
+
+    """
+    return datetime.datetime.fromisoformat(val)
+
+
+def to_iso_datetime_T00(val: str):
+    """Converts passed value to an ISO date time with time set to 00:00:00.000.
+
+    :param val: A character encoded representation of an ISO date time.
+    :returns: An ISO compliant datetime.
+
+    """
+    return to_iso_datetime(val).replace(hour=0, minute=0, second=0, microsecond=0)
+
+
+def to_iso_datetime_T24(val: str):
+    """Converts passed value to an ISO date time with time set to 23:59:59.000.
+
+    :param val: A character encoded representation of an ISO date time.
+    :returns: An ISO compliant datetime.
+
+    """
+    return to_iso_datetime(val).replace(hour=23, minute=59, second=59, microsecond=0)
 
 
 def to_pascal_case(name: str, separator: str ='_'):
@@ -52,26 +92,3 @@ def to_underscore_case(target: str):
     r = r.lower()
 
     return r
-
-
-def to_python_type(term) -> str:
-    """Maps an Actus term's type to it's pythonic equivalent.
-    
-    """
-    if term.type == "Real":
-        return "float"
-    elif term.type == "Varchar":
-        return "str"
-    elif term.type == "Timestamp":
-        return "datetime.datetime"
-    elif term.type == "ContractReference":
-        return "primitives.ContractReference"
-    elif term.type == "ContractReference[]":
-        return "typing.List[primitives.ContractReference]"
-    elif term.type == "Enum":
-        return f"enums.{to_camel_case(term.identifier)}"
-    elif term.type == "Enum[]":
-        return f"typing.List[enums.{to_camel_case(term.identifier)}]"
-
-    raise ValueError(term.type)
-    return f"xxx-{term.type}"

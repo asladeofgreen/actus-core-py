@@ -1,1 +1,1 @@
-from tests.fixtures.core import test_contracts
+from tests.fixtures.contracts import test_contracts
