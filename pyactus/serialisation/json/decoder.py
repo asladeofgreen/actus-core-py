@@ -7,7 +7,7 @@ from pyactus.typeset import ENUM_SET
 from pyactus.typeset import Contract
 from pyactus.typeset import ContractIdentifier
 from pyactus.typeset import ContractReference
-from pyactus.typeset import ContractTerms
+from pyactus.typeset import ContractTermset
 from pyactus.typeset import ContractType
 from pyactus.typeset import Cycle
 from pyactus.typeset import LifeCycleEpisode
@@ -25,7 +25,7 @@ def decode(obj: dict) -> object:
         raise ValueError("Invalid contract type")
     else:
         try:
-            termset_cls: ContractTerms = CONTRACT_TERMSETS[contract_type]
+            termset_cls: ContractTermset = CONTRACT_TERMSETS[contract_type]
         except KeyError:
             raise ValueError("Unsupported contract type")
 
@@ -45,9 +45,9 @@ def _decode_identifier(obj: dict) -> ContractIdentifier:
         )
 
 
-def _decode_life_cycle_episode(obj: dict, termset_cls: ContractTerms) -> LifeCycleEpisode:
+def _decode_life_cycle_episode(obj: dict, termset_cls: ContractTermset) -> LifeCycleEpisode:
     """Decodes a life cycle episode, i.e. a termset.
-    
+
     """
     return LifeCycleEpisode(
         term_set=_decode_term_set(obj, termset_cls),
@@ -55,7 +55,7 @@ def _decode_life_cycle_episode(obj: dict, termset_cls: ContractTerms) -> LifeCyc
     )
 
 
-def _decode_term_set(obj: dict, termset_cls) -> ContractTerms:
+def _decode_term_set(obj: dict, termset_cls) -> ContractTermset:
     """Decodes a term set associated with a financial contract.
 
     """

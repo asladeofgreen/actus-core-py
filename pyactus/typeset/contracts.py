@@ -9,9 +9,9 @@ from pyactus.typeset.events import Event
 
 
 @dataclasses.dataclass
-class ContractTerms():
+class ContractTermset():
     """A set of terms associated with a specific type of contract.
-    
+
     NOTE: this is subclassed in pyactus.typeset.termsets.{contract-type}.py.
     """
     pass
@@ -32,7 +32,7 @@ class LifeCycleEpisode():
 
     """
     # Set of applicable terms.
-    term_set: ContractTerms
+    term_set: ContractTermset
 
     # Sequence of events emitted by a calculation engine.
     event_sequence: typing.List[Event] = list
@@ -56,7 +56,7 @@ class LifeCycleEpisode():
 @dataclasses.dataclass
 class ContractIdentifier():
     """Encapsulates information required by a system to uniquely identify a contract.
-    
+
     """
     # Identifier scheme, e.g. ISIN.
     scheme: str
@@ -68,7 +68,7 @@ class ContractIdentifier():
 @dataclasses.dataclass
 class Contract():
     """An ACTUS compliant financial contract agreed upon by a set of counter-parties.
-    
+
     """
     # ACTUS contract type.
     contract_type: ContractType

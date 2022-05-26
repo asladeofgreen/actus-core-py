@@ -22,7 +22,7 @@ from pyactus.funcset import stk
 from pyactus.funcset import swaps
 from pyactus.funcset import swppv
 from pyactus.funcset import ump
-from pyactus.typeset import ContractTerms
+from pyactus.typeset import ContractTermset
 from pyactus.typeset import ContractType
 from pyactus.typeset import Event
 
@@ -53,30 +53,31 @@ _HANDLES = {
 def execute_step(
     contract_type: ContractType,
     events: typing.List[Event],
-    terms: ContractTerms,
+    term_set: ContractTermset,
     observer: object
 ) -> typing.List[Event]:
     """Applies a set of contract events to the current state of a contract.
 
     :param events: A list of contract events that should be applied in time sequence.
-    :param terms: The contract's currently applicable set of terms.
+    :param term_set: The contract's currently applicable set of terms.
     :param observer: The observer for external events & data.
     :returns: The evaluated events and post-event contract states.
 
     """
     handle = _HANDLES[contract_type]
 
-    return handle.execute_step(events, terms, observer)
+    return handle.execute_step(events, term_set, observer)
 
 
 def get_schedule(
+    contract_type: ContractType,
     to_date: datetime.datetime,
-    term_set: ContractTerms
+    term_set: ContractTermset
 ) -> typing.List[Event]:
     """Evaluates next contract event sequence within a certain time period.
 
     The set of contract attributes are mapped to the stream of next contract events
-    within a specified time period according to the legal logic of the respective 
+    within a specified time period according to the legal logic of the respective
     Contract Type and contingent to the risk factor dynamics provided with the
     risk factor model.  The contract's status date is used as the reference time
     as from which the code period is evaluated.
@@ -84,7 +85,7 @@ def get_schedule(
     Note, the stream of the next non-contingent contract events matches the portion
     of the stream of the next contingent events up to the first contingent event.
     Furthermore, for a contract with purely non-contingent events
-    (e.g. a PrincipalAtMaturity without a RateReset, Scaling, CreditDefault, etc.) 
+    (e.g. a PrincipalAtMaturity without a RateReset, Scaling, CreditDefault, etc.)
     contingent and non-contingent event streams are the same.
 
     :param to_date: The time up to which the events are to be evaluated.

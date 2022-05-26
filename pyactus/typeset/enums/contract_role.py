@@ -13,10 +13,10 @@ class ContractRole(enum.Enum):
     # Real Position Asset :: Contract creator takes the asset or lender side.
     RPA = 0
 
-    # Real Position Liability :: Contract creator takes the liability or borrower side. 
+    # Real Position Liability :: Contract creator takes the liability or borrower side.
     RPL = 1
 
-    # Receive First Leg :: Contract creator receives the first leg. 
+    # Receive First Leg :: Contract creator receives the first leg.
     RFL = 2
 
     # Pay First Leg :: Contract creator pays the first leg.
@@ -28,22 +28,22 @@ class ContractRole(enum.Enum):
     # Pay Fix :: Contract creator pays the fixed leg.
     PF = 5
 
-    # Buyer :: Contract creator holds the right to buy the underlying / exercise the option. 
+    # Buyer :: Contract creator holds the right to buy the underlying / exercise the option.
     BUY = 6
 
-    # Seller :: Contract creator holds the obligation to sell the underlying / deliver the option. 
+    # Seller :: Contract creator holds the obligation to sell the underlying / deliver the option.
     SEL = 7
 
     # Collateral Position :: Contract represents a collateral to an underlying instrument
     COL = 8
 
-    # Close out Netting :: Contract creator and counterparty agree on netting payment obligations of underlying instruments in case of default. 
+    # Close out Netting :: Contract creator and counterparty agree on netting payment obligations of underlying instruments in case of default.
     CNO = 9
 
-    # Underlying :: Contract represents the underlying to a composed contract. Role of the underlying is derived from the parent. 
+    # Underlying :: Contract represents the underlying to a composed contract. Role of the underlying is derived from the parent.
     UDL = 10
 
-    # Underlying Plus :: Contract represents the underlying to a composed contract. Role of the underlying is derived from the parent. When considered a standalone contract the underlying’s creator takes the asset side. 
+    # Underlying Plus :: Contract represents the underlying to a composed contract. Role of the underlying is derived from the parent. When considered a standalone contract the underlying’s creator takes the asset side.
     UDLP = 11
 
     # Underlying Minus :: Contract represents the underlying to a composed contract. Role of the underlying is derived from the parent. When considered a standalone contract the underlying’s creator takes the liability side.

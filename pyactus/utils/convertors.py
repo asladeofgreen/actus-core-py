@@ -2,7 +2,7 @@ import datetime
 import re
 
 
-def to_camel_case(name: str, separator: str ='_'):
+def to_camel_case(name: str, separator: str = '_'):
     """Converts passed name to camel case.
 
     :param name: A name as specified in ontology specification.
@@ -60,7 +60,7 @@ def to_iso_datetime_T24(val: str):
     return to_iso_datetime(val).replace(hour=23, minute=59, second=59, microsecond=0)
 
 
-def to_pascal_case(name: str, separator: str ='_'):
+def to_pascal_case(name: str, separator: str = '_'):
     """Converts passed name to pascal case.
 
     :param name: A name as specified in ontology specification.

@@ -8,7 +8,7 @@ from pyactus.typeset.states import StateSpace
 
 class EventType(enum.Enum):
     """Set of supported contract event types.
-    
+
     """
     # Monitoring :: Monitoring of contract. Evaluates all contract states.
     AD = enum.auto()

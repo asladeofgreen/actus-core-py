@@ -11,4 +11,3 @@ __license__ = "Apache 2.0"
 
 from pyactus import funcset
 from pyactus import typeset
-

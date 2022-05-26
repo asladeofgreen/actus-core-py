@@ -11,227 +11,230 @@ from pyactus.typeset import contracts
 
 
 @dataclasses.dataclass
-class TermsForAnnuity(contracts.ContractTerms):
-    """Set of applicable terms: ANN -> Annuity.
+class TermsetOfLinearAmortizer(contracts.ContractTermset):
+    """Set of applicable terms: LAM -> Linear Amortizer.
 
-    Principal payment fully at IED and interest plus principal repaid periodically in constant amounts till MD. If variable rate, total amount for interest and principal is recalculated to be fully matured at MD.
+    Principal payment fully at IED. Principal repaid periodically in constant amounts till MD. Interest gets reduced accordingly. If variable rate, only interest payment is recalculated. Fixed and variable rates.
 
     """
-    # Accrued Interest :: 
+    # Accrued Interest.
     accrued_interest: float = None
 
-    # Amortization Date :: 
-    amortization_date: datetime.datetime = None
-
-    # Business Day Convention :: 
+    # Business Day Convention.
     business_day_convention: enums.BusinessDayConvention = enums.BusinessDayConvention.NOS
 
-    # Calendar :: 
+    # Calendar.
     calendar: enums.Calendar = enums.Calendar.NC
 
-    # Capitalization End Date :: 
+    # Capitalization End Date.
     capitalization_end_date: datetime.datetime = None
 
-    # Contract Deal Date :: 
+    # Contract Deal Date.
     contract_deal_date: datetime.datetime = None
 
-    # Contract Identifier :: 
+    # Contract Identifier.
     contract_id: str = None
 
-    # Contract Performance :: 
+    # Contract Performance.
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
 
-    # Contract Role :: 
+    # Contract Role.
     contract_role: enums.ContractRole = None
 
-    # Counterparty Identifier :: 
+    # Counterparty Identifier.
     counterparty_id: str = None
 
-    # Creator Identifier :: 
+    # Creator Identifier.
     creator_id: str = None
 
-    # Credit Line Amount :: 
+    # Credit Line Amount.
     credit_line_amount: float = None
 
-    # Currency :: 
+    # Currency.
     currency: str = None
 
-    # Cycle Anchor Date Of Fee :: 
+    # Cycle Anchor Date Of Fee.
     cycle_anchor_date_of_fee: datetime.datetime = None
 
-    # Cycle Anchor Date Of Interest Calculation Base :: 
+    # Cycle Anchor Date Of Interest Calculation Base.
     cycle_anchor_date_of_interest_calculation_base: datetime.datetime = None
 
-    # Cycle Anchor Date Of Interest Payment :: 
+    # Cycle Anchor Date Of Interest Payment.
     cycle_anchor_date_of_interest_payment: datetime.datetime = None
 
-    # Cycle Anchor Date Of Optionality :: 
+    # Cycle Anchor Date Of Optionality.
     cycle_anchor_date_of_optionality: datetime.datetime = None
 
-    # Cycle Anchor Date Of Principal Redemption :: 
+    # Cycle Anchor Date Of Principal Redemption.
     cycle_anchor_date_of_principal_redemption: datetime.datetime = None
 
-    # Cycle Anchor Date Of Rate Reset :: 
+    # Cycle Anchor Date Of Rate Reset.
     cycle_anchor_date_of_rate_reset: datetime.datetime = None
 
-    # Cycle Anchor Date Of Scaling Index :: 
+    # Cycle Anchor Date Of Scaling Index.
     cycle_anchor_date_of_scaling_index: datetime.datetime = None
 
-    # Cycle Of Fee :: 
+    # Cycle Of Fee.
     cycle_of_fee: auxiliary.Cycle = None
 
-    # Cycle Of Interest Calculation Base :: 
+    # Cycle Of Interest Calculation Base.
     cycle_of_interest_calculation_base: auxiliary.Cycle = None
 
-    # Cycle Of Interest Payment :: 
+    # Cycle Of Interest Payment.
     cycle_of_interest_payment: auxiliary.Cycle = None
 
-    # Cycle Of Optionality :: 
+    # Cycle Of Optionality.
     cycle_of_optionality: auxiliary.Cycle = None
 
-    # Cycle Of Principal Redemption :: 
+    # Cycle Of Principal Redemption.
     cycle_of_principal_redemption: auxiliary.Cycle = None
 
-    # Cycle Of Rate Reset :: 
+    # Cycle Of Rate Reset.
     cycle_of_rate_reset: auxiliary.Cycle = None
 
-    # Cycle Of Scaling Index :: 
+    # Cycle Of Scaling Index.
     cycle_of_scaling_index: auxiliary.Cycle = None
 
-    # Day Count Convention :: 
+    # Cycle Point Of Interest Payment.
+    cycle_point_of_interest_payment: enums.CyclePointOfInterestPayment = enums.CyclePointOfInterestPayment.E
+
+    # Cycle Point Of Rate Reset.
+    cycle_point_of_rate_reset: enums.CyclePointOfRateReset = enums.CyclePointOfRateReset.B
+
+    # Day Count Convention.
     day_count_convention: enums.DayCountConvention = None
 
-    # Delinquency Period :: 
+    # Delinquency Period.
     delinquency_period: auxiliary.Period = None
 
-    # Delinquency Rate :: 
+    # Delinquency Rate.
     delinquency_rate: float = 'TODO: format 0'
 
-    # End Of Month Convention :: 
+    # End Of Month Convention.
     end_of_month_convention: enums.EndOfMonthConvention = enums.EndOfMonthConvention.SD
 
-    # Fee Accrued :: 
+    # Fee Accrued.
     fee_accrued: float = None
 
-    # Fee Basis :: 
+    # Fee Basis.
     fee_basis: enums.FeeBasis = None
 
-    # Fee Rate :: 
+    # Fee Rate.
     fee_rate: float = None
 
-    # Fixing Period :: 
+    # Fixing Period.
     fixing_period: auxiliary.Period = None
 
-    # Grace Period :: 
+    # Grace Period.
     grace_period: auxiliary.Period = None
 
-    # Initial Exchange Date :: 
+    # Initial Exchange Date.
     initial_exchange_date: datetime.datetime = None
 
-    # Interest Calculation Base :: 
+    # Interest Calculation Base.
     interest_calculation_base: enums.InterestCalculationBase = enums.InterestCalculationBase.NT
 
-    # Interest Calculation Base Amount :: 
+    # Interest Calculation Base Amount.
     interest_calculation_base_amount: float = None
 
-    # Interest Scaling Multiplier :: 
+    # Interest Scaling Multiplier.
     interest_scaling_multiplier: float = 'TODO: format 1'
 
-    # Life Cap :: 
+    # Life Cap.
     life_cap: float = None
 
-    # Life Floor :: 
+    # Life Floor.
     life_floor: float = None
 
-    # Market Object Code :: 
+    # Market Object Code.
     market_object_code: str = None
 
-    # Market Object Code Of Rate Reset :: 
+    # Market Object Code Of Rate Reset.
     market_object_code_of_rate_reset: str = None
 
-    # Market Object Code Of Scaling Index :: 
+    # Market Object Code Of Scaling Index.
     market_object_code_of_scaling_index: str = None
 
-    # Market Value Observed :: 
+    # Market Value Observed.
     market_value_observed: float = None
 
-    # Maturity Date :: 
+    # Maturity Date.
     maturity_date: datetime.datetime = None
 
-    # Next Principal Redemption Payment :: 
+    # Next Principal Redemption Payment.
     next_principal_redemption_payment: float = None
 
-    # Next Reset Rate :: 
+    # Next Reset Rate.
     next_reset_rate: float = None
 
-    # Nominal Interest Rate :: 
+    # Nominal Interest Rate.
     nominal_interest_rate: float = None
 
-    # Non Performing Date :: 
+    # Non Performing Date.
     non_performing_date: datetime.datetime = None
 
-    # Notional Principal :: 
+    # Notional Principal.
     notional_principal: float = None
 
-    # Notional Scaling Multiplier :: 
+    # Notional Scaling Multiplier.
     notional_scaling_multiplier: float = 'TODO: format 1'
 
-    # Option Exercise End Date :: 
+    # Option Exercise End Date.
     option_exercise_end_date: datetime.datetime = None
 
-    # Penalty Rate :: 
+    # Penalty Rate.
     penalty_rate: float = 'TODO: format 0'
 
-    # Penalty Type :: 
+    # Penalty Type.
     penalty_type: enums.PenaltyType = enums.PenaltyType.N
 
-    # Period Cap :: 
+    # Period Cap.
     period_cap: float = None
 
-    # Period Floor :: 
+    # Period Floor.
     period_floor: float = None
 
-    # Premium Discount At IED :: 
+    # Premium Discount At IED.
     premium_discount_at_ied: float = 'TODO: format 0'
 
-    # Prepayment Effect :: 
+    # Prepayment Effect.
     prepayment_effect: enums.PrepaymentEffect = enums.PrepaymentEffect.N
 
-    # Prepayment Period :: 
+    # Prepayment Period.
     prepayment_period: auxiliary.Period = None
 
-    # Price At Purchase Date :: 
+    # Price At Purchase Date.
     price_at_purchase_date: float = None
 
-    # Price At Termination Date :: 
+    # Price At Termination Date.
     price_at_termination_date: float = None
 
-    # Purchase Date :: 
+    # Purchase Date.
     purchase_date: datetime.datetime = None
 
-    # Rate Multiplier :: 
+    # Rate Multiplier.
     rate_multiplier: float = 'TODO: format 1'
 
-    # Rate Spread :: 
+    # Rate Spread.
     rate_spread: float = 'TODO: format 0'
 
-    # Scaling Effect :: 
+    # Scaling Effect.
     scaling_effect: enums.ScalingEffect = enums.ScalingEffect._000
 
-    # Scaling Index At Contract Deal Date :: 
+    # Scaling Index At Contract Deal Date.
     scaling_index_at_contract_deal_date: float = None
 
-    # Seniority :: 
+    # Seniority.
     seniority: enums.Seniority = None
 
-    # Settlement Currency :: 
+    # Settlement Currency.
     settlement_currency: str = None
 
-    # Status Date :: 
+    # Status Date.
     status_date: datetime.datetime = None
 
-    # Termination Date :: 
+    # Termination Date.
     termination_date: datetime.datetime = None
 
     # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
-    contract_type: enums.ContractType = enums.ContractType.ANN
+    contract_type: enums.ContractType = enums.ContractType.LAM
