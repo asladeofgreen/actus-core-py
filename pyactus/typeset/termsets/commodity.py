@@ -51,7 +51,7 @@ class TermsetOfCommodity(contracts.ContractTermset):
     purchase_date: datetime.datetime = None
 
     # Quantity.
-    quantity: float = 'TODO: format 1'
+    quantity: float = 1.0
 
     # Status Date.
     status_date: datetime.datetime = None

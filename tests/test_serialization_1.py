@@ -9,5 +9,5 @@ def test_that_a_contract_fixture_is_decodeable(test_contracts: typing.List[dict]
     for encoded in test_contracts:
         decoded = serialisation.from_json(encoded)
         assert decoded.contract_type in typeset.CONTRACT_TERMSETS
-        raise ValueError()
-
+        # print(decoded)
+        # raise ValueError()

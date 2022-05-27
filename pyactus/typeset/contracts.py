@@ -9,48 +9,12 @@ from pyactus.typeset.events import Event
 
 
 @dataclasses.dataclass
-class ContractTermset():
-    """A set of terms associated with a specific type of contract.
-
-    NOTE: this is subclassed in pyactus.typeset.termsets.{contract-type}.py.
-    """
-    pass
-
-
-@dataclasses.dataclass
-class CalculationProof():
-    """Encapsulates information related to a cryptographic calculation proof.
+class ContractExecutionProof():
+    """Encapsulates information related to a proof of calculation correctness.
 
     """
     # Timestamp at which calcuation was performed.
     timestamp: datetime.datetime
-
-
-@dataclasses.dataclass
-class LifeCycleEpisode():
-    """Encapsulates information related to episodes in  a contract life cycle.
-
-    """
-    # Set of applicable terms.
-    term_set: ContractTermset
-
-    # Sequence of events emitted by a calculation engine.
-    event_sequence: typing.List[Event] = list
-
-    # Proof of event sequence calculation.
-    event_sequence_proof: CalculationProof = None
-
-    # Timestamp at which life cycle event occurred.
-    timestamp: datetime.datetime = datetime.datetime.utcnow
-
-    # Information related to external event that triggered life cycle event.
-    trigger: str = "issuance"
-
-    # Universally unique identifier.
-    uid: str = uuid.uuid4
-
-    def __str__(self) -> str:
-        return f"lifecycle-episode|{self.term_set.contract_type}|{self.timestamp}|{self.uid}"
 
 
 @dataclasses.dataclass
@@ -66,6 +30,42 @@ class ContractIdentifier():
 
 
 @dataclasses.dataclass
+class ContractLifeCycleEpisode():
+    """Encapsulates information related to episodes in  a contract life cycle.
+
+    """
+    # Set of applicable terms.
+    term_set: "ContractTermset"
+
+    # Sequence of events emitted by a calculation engine.
+    event_sequence: typing.List[Event] = list
+
+    # Proof of event sequence calculation.
+    event_sequence_proof: ContractExecutionProof = None
+
+    # Timestamp at which life cycle event occurred.
+    timestamp: datetime.datetime = datetime.datetime.utcnow().isoformat
+
+    # Information related to external event that triggered life cycle event.
+    trigger: str = "issuance"
+
+    # Universally unique identifier.
+    uid: str = uuid.uuid4
+
+    def __str__(self) -> str:
+        return f"lifecycle-episode|{self.term_set.contract_type}|{self.timestamp}|{self.uid}"
+
+
+@dataclasses.dataclass
+class ContractTermset():
+    """A set of terms associated with a specific type of contract.
+
+    NOTE: this is subclassed in pyactus.typeset.termsets.{contract-type}.py.
+    """
+    pass
+
+
+@dataclasses.dataclass
 class Contract():
     """An ACTUS compliant financial contract agreed upon by a set of counter-parties.
 
@@ -77,7 +77,7 @@ class Contract():
     identifiers: typing.List[ContractIdentifier]
 
     # Life cycle history of terms & events.
-    life_cycle: typing.List[LifeCycleEpisode]
+    life_cycle: typing.List[ContractLifeCycleEpisode]
 
     # Universally unique identifier.
     uid: str = str(uuid.uuid4())

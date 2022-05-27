@@ -27,8 +27,8 @@ def _yield_contracts() -> typing.Iterator[typing.Tuple[ContractType, dict]]:
     
     """
     for contract_type in ContractType:
-        if contract_type != ContractType.PAM:
-            continue
+        # if contract_type != ContractType.PAM:
+        #     continue
         for obj in _read_contract_fixtures(contract_type):
             yield _map_contract_fixture(contract_type, obj)
 
@@ -49,9 +49,20 @@ def _map_contract_fixture(contract_type: ContractType, obj: dict) -> dict:
     """Maps a test contract fixture to it's over the wire ACTUS representation.
     
     """
+    def _map_term_name(name):
+        if name == "fixingDays":
+            return "fixingPeriod"
+        return name
+
+    def _map_term(k, v):
+        return {
+            "name": _map_term_name(k),
+            "value": v
+        }
+
     def _map_term_set():
         return [
-            { "name": k, "value": v} 
+            _map_term(k, v) 
             for k, v in sorted(obj["terms"].items(), key=lambda i: i[0]) 
             if k not in {"contractID", "contractType"}
             ]
@@ -69,8 +80,8 @@ def _map_contract_fixture(contract_type: ContractType, obj: dict) -> dict:
                 "event_sequence": obj["results"],
                 "event_sequence_proof": None,
                 "term_set": _map_term_set(),
-                "timestamp": datetime.datetime.utcnow(),
-                "trigger": None,
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "trigger": "issuance",
             }
         ],
         "uid": str(uuid.uuid4())

@@ -108,7 +108,7 @@ class TermsetOfLinearAmortizer(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 'TODO: format 0'
+    delinquency_rate: float = 0.0
 
     # End Of Month Convention.
     end_of_month_convention: enums.EndOfMonthConvention = enums.EndOfMonthConvention.SD
@@ -138,7 +138,7 @@ class TermsetOfLinearAmortizer(contracts.ContractTermset):
     interest_calculation_base_amount: float = None
 
     # Interest Scaling Multiplier.
-    interest_scaling_multiplier: float = 'TODO: format 1'
+    interest_scaling_multiplier: float = 1.0
 
     # Life Cap.
     life_cap: float = None
@@ -177,13 +177,13 @@ class TermsetOfLinearAmortizer(contracts.ContractTermset):
     notional_principal: float = None
 
     # Notional Scaling Multiplier.
-    notional_scaling_multiplier: float = 'TODO: format 1'
+    notional_scaling_multiplier: float = 1.0
 
     # Option Exercise End Date.
     option_exercise_end_date: datetime.datetime = None
 
     # Penalty Rate.
-    penalty_rate: float = 'TODO: format 0'
+    penalty_rate: float = 0.0
 
     # Penalty Type.
     penalty_type: enums.PenaltyType = enums.PenaltyType.N
@@ -195,7 +195,7 @@ class TermsetOfLinearAmortizer(contracts.ContractTermset):
     period_floor: float = None
 
     # Premium Discount At IED.
-    premium_discount_at_ied: float = 'TODO: format 0'
+    premium_discount_at_ied: float = 0.0
 
     # Prepayment Effect.
     prepayment_effect: enums.PrepaymentEffect = enums.PrepaymentEffect.N
@@ -213,13 +213,13 @@ class TermsetOfLinearAmortizer(contracts.ContractTermset):
     purchase_date: datetime.datetime = None
 
     # Rate Multiplier.
-    rate_multiplier: float = 'TODO: format 1'
+    rate_multiplier: float = 1.0
 
     # Rate Spread.
-    rate_spread: float = 'TODO: format 0'
+    rate_spread: float = 0.0
 
     # Scaling Effect.
-    scaling_effect: enums.ScalingEffect = enums.ScalingEffect._000
+    scaling_effect: enums.ScalingEffect = enums.ScalingEffect.OOO
 
     # Scaling Index At Contract Deal Date.
     scaling_index_at_contract_deal_date: float = None

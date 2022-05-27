@@ -63,7 +63,7 @@ class TermsetOfStock(contracts.ContractTermset):
     market_value_observed: float = None
 
     # Next Dividend Payment Amount.
-    next_dividend_payment_amount: float = 'TODO: format 0'
+    next_dividend_payment_amount: float = 0.0
 
     # Non Performing Date.
     non_performing_date: datetime.datetime = None
@@ -81,7 +81,7 @@ class TermsetOfStock(contracts.ContractTermset):
     purchase_date: datetime.datetime = None
 
     # Quantity.
-    quantity: float = 'TODO: format 1'
+    quantity: float = 1.0
 
     # Seniority.
     seniority: enums.Seniority = None

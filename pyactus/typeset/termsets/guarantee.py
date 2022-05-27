@@ -42,13 +42,13 @@ class TermsetOfGuarantee(contracts.ContractTermset):
     counterparty_id: str = None
 
     # Coverage Of Credit Enhancement.
-    coverage_of_credit_enhancement: float = 'TODO: format 1'
+    coverage_of_credit_enhancement: float = 1.0
 
     # Creator Identifier.
     creator_id: str = None
 
     # Credit Event Type Covered.
-    credit_event_type_covered: typing.List[enums.CreditEventTypeCovered] = 'TODO: format DF'
+    credit_event_type_covered: typing.List[enums.CreditEventTypeCovered] = 'TODO: format Enum[] :: DF'
 
     # Currency.
     currency: str = None
@@ -63,7 +63,7 @@ class TermsetOfGuarantee(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 'TODO: format 0'
+    delinquency_rate: float = 0.0
 
     # End Of Month Convention.
     end_of_month_convention: enums.EndOfMonthConvention = enums.EndOfMonthConvention.SD

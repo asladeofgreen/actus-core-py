@@ -11,14 +11,14 @@ class ScalingEffect(enum.Enum):
 
     """
     # No Scaling :: No scaling applies.
-    _000 = 0
+    OOO = 0
 
     # Interest is Scaled :: Scaling applies only to interest.
-    I00 = 1
+    IOO = 1
 
     # Principal is Scaled :: Scaling applies only to principal.
-    _0N0 = 2
+    ONO = 2
 
     # Interest and Principal is Scaled :: Scaling applies to interest and principal.
-    IN0 = 3
+    INO = 3
 

@@ -57,7 +57,7 @@ class TermsetOfOption(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 'TODO: format 0'
+    delinquency_rate: float = 0.0
 
     # Delivery Settlement.
     delivery_settlement: enums.DeliverySettlement = enums.DeliverySettlement.D

@@ -72,7 +72,7 @@ class TermsetOfUndefinedMaturityProfile(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 'TODO: format 0'
+    delinquency_rate: float = 0.0
 
     # End Of Month Convention.
     end_of_month_convention: enums.EndOfMonthConvention = enums.EndOfMonthConvention.SD
@@ -96,7 +96,7 @@ class TermsetOfUndefinedMaturityProfile(contracts.ContractTermset):
     market_object_code_of_rate_reset: str = None
 
     # Maximum Penalty Free Disbursement.
-    maximum_penalty_free_disbursement: float = 'TODO: format [ the value of notionalPrincipal ]'
+    maximum_penalty_free_disbursement: float = 0.0
 
     # Nominal Interest Rate.
     nominal_interest_rate: float = None
@@ -114,7 +114,7 @@ class TermsetOfUndefinedMaturityProfile(contracts.ContractTermset):
     price_at_termination_date: float = None
 
     # Rate Spread.
-    rate_spread: float = 'TODO: format 0'
+    rate_spread: float = 0.0
 
     # Seniority.
     seniority: enums.Seniority = None

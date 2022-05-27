@@ -66,7 +66,7 @@ class TermsetOfPlainVanillaSwap(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 'TODO: format 0'
+    delinquency_rate: float = 0.0
 
     # Delivery Settlement.
     delivery_settlement: enums.DeliverySettlement = enums.DeliverySettlement.D
@@ -120,10 +120,10 @@ class TermsetOfPlainVanillaSwap(contracts.ContractTermset):
     purchase_date: datetime.datetime = None
 
     # Rate Multiplier.
-    rate_multiplier: float = 'TODO: format 1'
+    rate_multiplier: float = 1.0
 
     # Rate Spread.
-    rate_spread: float = 'TODO: format 0'
+    rate_spread: float = 0.0
 
     # Seniority.
     seniority: enums.Seniority = None

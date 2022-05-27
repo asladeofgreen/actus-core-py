@@ -25,3 +25,31 @@ from pyactus.typeset.enums.prepayment_effect import PrepaymentEffect
 from pyactus.typeset.enums.scaling_effect import ScalingEffect
 from pyactus.typeset.enums.seniority import Seniority
 from pyactus.typeset.enums.unit import Unit
+
+# Set of all supported enumerations.
+ENUM_SET = {
+    ArrayFixedVariable,
+    ArrayIncreaseDecrease,
+    BusinessDayConvention,
+    Calendar,
+    ClearingHouse,
+    ContractPerformance,
+    ContractRole,
+    ContractType,
+    CreditEventTypeCovered,
+    CyclePointOfInterestPayment,
+    CyclePointOfRateReset,
+    DayCountConvention,
+    DeliverySettlement,
+    EndOfMonthConvention,
+    FeeBasis,
+    GuaranteedExposure,
+    InterestCalculationBase,
+    OptionExerciseType,
+    OptionType,
+    PenaltyType,
+    PrepaymentEffect,
+    ScalingEffect,
+    Seniority,
+    Unit,
+}

@@ -60,7 +60,7 @@ class TermsetOfFuture(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 'TODO: format 0'
+    delinquency_rate: float = 0.0
 
     # Delivery Settlement.
     delivery_settlement: enums.DeliverySettlement = enums.DeliverySettlement.D
@@ -81,7 +81,7 @@ class TermsetOfFuture(contracts.ContractTermset):
     grace_period: auxiliary.Period = None
 
     # Initial Margin.
-    initial_margin: float = 'TODO: format 0'
+    initial_margin: float = 0.0
 
     # Maintenance Margin Lower Bound.
     maintenance_margin_lower_bound: float = None
