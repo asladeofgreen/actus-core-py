@@ -17,6 +17,15 @@ class TermsetOfCallMoney(contracts.ContractTermset):
     Loans that are rolled over as long as they are not called. Once called it has to be paid back after the stipulated notice period.
 
     """
+    # Contract Identifier.
+    contract_id: str = None
+
+    # Contract Role.
+    contract_role: enums.ContractRole = None
+
+    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
+    contract_type: enums.ContractType = enums.ContractType.CLM
+
     # Accrued Interest.
     accrued_interest: float = None
 
@@ -29,14 +38,8 @@ class TermsetOfCallMoney(contracts.ContractTermset):
     # Contract Deal Date.
     contract_deal_date: datetime.datetime = None
 
-    # Contract Identifier.
-    contract_id: str = None
-
     # Contract Performance.
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
-
-    # Contract Role.
-    contract_role: enums.ContractRole = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -72,7 +75,7 @@ class TermsetOfCallMoney(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 0.0
+    delinquency_rate: float = None
 
     # End Of Month Convention.
     end_of_month_convention: enums.EndOfMonthConvention = enums.EndOfMonthConvention.SD
@@ -120,7 +123,7 @@ class TermsetOfCallMoney(contracts.ContractTermset):
     rate_multiplier: float = 1.0
 
     # Rate Spread.
-    rate_spread: float = 0.0
+    rate_spread: float = None
 
     # Seniority.
     seniority: enums.Seniority = None
@@ -134,5 +137,3 @@ class TermsetOfCallMoney(contracts.ContractTermset):
     # X Day Notice.
     x_day_notice: auxiliary.Period = None
 
-    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
-    contract_type: enums.ContractType = enums.ContractType.CLM

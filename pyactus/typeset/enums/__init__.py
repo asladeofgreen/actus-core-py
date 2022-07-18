@@ -1,6 +1,8 @@
 # **********************************
 # N.B. Auto-generated using actus-mp
 # **********************************
+from pyactus.typeset.enums.reference_role import ReferenceRole
+from pyactus.typeset.enums.reference_type import ReferenceType
 from pyactus.typeset.enums.array_fixed_variable import ArrayFixedVariable
 from pyactus.typeset.enums.array_increase_decrease import ArrayIncreaseDecrease
 from pyactus.typeset.enums.business_day_convention import BusinessDayConvention
@@ -25,9 +27,14 @@ from pyactus.typeset.enums.prepayment_effect import PrepaymentEffect
 from pyactus.typeset.enums.scaling_effect import ScalingEffect
 from pyactus.typeset.enums.seniority import Seniority
 from pyactus.typeset.enums.unit import Unit
+from pyactus.typeset.enums.reference_role import ReferenceRole
+from pyactus.typeset.enums.reference_type import ReferenceType
+
 
 # Set of all supported enumerations.
 ENUM_SET = {
+    ReferenceRole,
+    ReferenceType,
     ArrayFixedVariable,
     ArrayIncreaseDecrease,
     BusinessDayConvention,
@@ -52,4 +59,6 @@ ENUM_SET = {
     ScalingEffect,
     Seniority,
     Unit,
+    ReferenceRole,
+    ReferenceType,
 }

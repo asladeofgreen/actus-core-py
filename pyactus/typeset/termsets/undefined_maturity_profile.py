@@ -17,6 +17,15 @@ class TermsetOfUndefinedMaturityProfile(contracts.ContractTermset):
     Principal paid in and out at any point in time without prefixed schedule. Interest calculated on outstanding and capitalized periodically. Needs link to a behavioral function describing expected flows.
 
     """
+    # Contract Identifier.
+    contract_id: str = None
+
+    # Contract Role.
+    contract_role: enums.ContractRole = None
+
+    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
+    contract_type: enums.ContractType = enums.ContractType.UMP
+
     # Accrued Interest.
     accrued_interest: float = None
 
@@ -29,14 +38,8 @@ class TermsetOfUndefinedMaturityProfile(contracts.ContractTermset):
     # Contract Deal Date.
     contract_deal_date: datetime.datetime = None
 
-    # Contract Identifier.
-    contract_id: str = None
-
     # Contract Performance.
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
-
-    # Contract Role.
-    contract_role: enums.ContractRole = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -72,7 +75,7 @@ class TermsetOfUndefinedMaturityProfile(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 0.0
+    delinquency_rate: float = None
 
     # End Of Month Convention.
     end_of_month_convention: enums.EndOfMonthConvention = enums.EndOfMonthConvention.SD
@@ -96,7 +99,7 @@ class TermsetOfUndefinedMaturityProfile(contracts.ContractTermset):
     market_object_code_of_rate_reset: str = None
 
     # Maximum Penalty Free Disbursement.
-    maximum_penalty_free_disbursement: float = 0.0
+    maximum_penalty_free_disbursement: float = None
 
     # Nominal Interest Rate.
     nominal_interest_rate: float = None
@@ -114,7 +117,7 @@ class TermsetOfUndefinedMaturityProfile(contracts.ContractTermset):
     price_at_termination_date: float = None
 
     # Rate Spread.
-    rate_spread: float = 0.0
+    rate_spread: float = None
 
     # Seniority.
     seniority: enums.Seniority = None
@@ -131,5 +134,3 @@ class TermsetOfUndefinedMaturityProfile(contracts.ContractTermset):
     # X Day Notice.
     x_day_notice: auxiliary.Period = None
 
-    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
-    contract_type: enums.ContractType = enums.ContractType.UMP

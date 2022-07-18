@@ -17,6 +17,15 @@ class TermsetOfOption(contracts.ContractTermset):
     Calculates straight option pay-off for any basic CT as underlying (PAM, ANN etc.) but also SWAPS, FXOUT, STK and COM. Single, periodic and continuous strike is supported.
 
     """
+    # Contract Identifier.
+    contract_id: str = None
+
+    # Contract Role.
+    contract_role: enums.ContractRole = None
+
+    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
+    contract_type: enums.ContractType = enums.ContractType.OPTNS
+
     # Business Day Convention.
     business_day_convention: enums.BusinessDayConvention = enums.BusinessDayConvention.NOS
 
@@ -26,17 +35,11 @@ class TermsetOfOption(contracts.ContractTermset):
     # Contract Deal Date.
     contract_deal_date: datetime.datetime = None
 
-    # Contract Identifier.
-    contract_id: str = None
-
     # Contract Performance.
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
 
-    # Contract Role.
-    contract_role: enums.ContractRole = None
-
     # Contract Structure.
-    contract_structure: typing.List[auxiliary.ContractReference] = None
+    contract_structure: typing.List[contracts.ContractReference] = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -57,7 +60,7 @@ class TermsetOfOption(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 0.0
+    delinquency_rate: float = None
 
     # Delivery Settlement.
     delivery_settlement: enums.DeliverySettlement = enums.DeliverySettlement.D
@@ -125,5 +128,3 @@ class TermsetOfOption(contracts.ContractTermset):
     # Termination Date.
     termination_date: datetime.datetime = None
 
-    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
-    contract_type: enums.ContractType = enums.ContractType.OPTNS

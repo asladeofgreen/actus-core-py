@@ -17,6 +17,15 @@ class TermsetOfGuarantee(contracts.ContractTermset):
     Guarantee creates a relationship between a guarantor, an obligee and a debtor, moving the exposure from the debtor to the guarantor.
 
     """
+    # Contract Identifier.
+    contract_id: str = None
+
+    # Contract Role.
+    contract_role: enums.ContractRole = None
+
+    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
+    contract_type: enums.ContractType = enums.ContractType.CEG
+
     # Business Day Convention.
     business_day_convention: enums.BusinessDayConvention = enums.BusinessDayConvention.NOS
 
@@ -26,17 +35,11 @@ class TermsetOfGuarantee(contracts.ContractTermset):
     # Contract Deal Date.
     contract_deal_date: datetime.datetime = None
 
-    # Contract Identifier.
-    contract_id: str = None
-
     # Contract Performance.
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
 
-    # Contract Role.
-    contract_role: enums.ContractRole = None
-
     # Contract Structure.
-    contract_structure: typing.List[auxiliary.ContractReference] = None
+    contract_structure: typing.List[contracts.ContractReference] = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -48,7 +51,7 @@ class TermsetOfGuarantee(contracts.ContractTermset):
     creator_id: str = None
 
     # Credit Event Type Covered.
-    credit_event_type_covered: typing.List[enums.CreditEventTypeCovered] = 'TODO: format Enum[] :: DF'
+    credit_event_type_covered: typing.List[enums.CreditEventTypeCovered] = enums.CreditEventTypeCovered.DF
 
     # Currency.
     currency: str = None
@@ -63,7 +66,7 @@ class TermsetOfGuarantee(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 0.0
+    delinquency_rate: float = None
 
     # End Of Month Convention.
     end_of_month_convention: enums.EndOfMonthConvention = enums.EndOfMonthConvention.SD
@@ -119,5 +122,3 @@ class TermsetOfGuarantee(contracts.ContractTermset):
     # Termination Date.
     termination_date: datetime.datetime = None
 
-    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
-    contract_type: enums.ContractType = enums.ContractType.CEG

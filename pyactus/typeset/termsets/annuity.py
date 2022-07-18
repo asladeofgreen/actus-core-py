@@ -17,6 +17,15 @@ class TermsetOfAnnuity(contracts.ContractTermset):
     Principal payment fully at IED and interest plus principal repaid periodically in constant amounts till MD. If variable rate, total amount for interest and principal is recalculated to be fully matured at MD.
 
     """
+    # Contract Identifier.
+    contract_id: str = None
+
+    # Contract Role.
+    contract_role: enums.ContractRole = None
+
+    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
+    contract_type: enums.ContractType = enums.ContractType.ANN
+
     # Accrued Interest.
     accrued_interest: float = None
 
@@ -35,14 +44,8 @@ class TermsetOfAnnuity(contracts.ContractTermset):
     # Contract Deal Date.
     contract_deal_date: datetime.datetime = None
 
-    # Contract Identifier.
-    contract_id: str = None
-
     # Contract Performance.
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
-
-    # Contract Role.
-    contract_role: enums.ContractRole = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -105,7 +108,7 @@ class TermsetOfAnnuity(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 0.0
+    delinquency_rate: float = None
 
     # End Of Month Convention.
     end_of_month_convention: enums.EndOfMonthConvention = enums.EndOfMonthConvention.SD
@@ -180,7 +183,7 @@ class TermsetOfAnnuity(contracts.ContractTermset):
     option_exercise_end_date: datetime.datetime = None
 
     # Penalty Rate.
-    penalty_rate: float = 0.0
+    penalty_rate: float = None
 
     # Penalty Type.
     penalty_type: enums.PenaltyType = enums.PenaltyType.N
@@ -192,7 +195,7 @@ class TermsetOfAnnuity(contracts.ContractTermset):
     period_floor: float = None
 
     # Premium Discount At IED.
-    premium_discount_at_ied: float = 0.0
+    premium_discount_at_ied: float = None
 
     # Prepayment Effect.
     prepayment_effect: enums.PrepaymentEffect = enums.PrepaymentEffect.N
@@ -213,7 +216,7 @@ class TermsetOfAnnuity(contracts.ContractTermset):
     rate_multiplier: float = 1.0
 
     # Rate Spread.
-    rate_spread: float = 0.0
+    rate_spread: float = None
 
     # Scaling Effect.
     scaling_effect: enums.ScalingEffect = enums.ScalingEffect.OOO
@@ -233,5 +236,3 @@ class TermsetOfAnnuity(contracts.ContractTermset):
     # Termination Date.
     termination_date: datetime.datetime = None
 
-    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
-    contract_type: enums.ContractType = enums.ContractType.ANN

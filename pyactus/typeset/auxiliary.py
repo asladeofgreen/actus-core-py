@@ -8,5 +8,5 @@ Period = typing.NewType("A period of time before/after which a state transition 
 # Time period.
 Cycle = typing.NewType("A period of time before/after which a state transition occurs.", datetime.timedelta)
 
-# XXXXXX.
-ContractReference = typing.NewType("XXXXXXXX.", datetime.timedelta)
+# Contract reference.
+ContractReference = typing.NewType("ContractReference.", dict)

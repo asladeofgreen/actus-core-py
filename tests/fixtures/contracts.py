@@ -54,10 +54,17 @@ def _map_contract_fixture(contract_type: ContractType, obj: dict) -> dict:
             return "fixingPeriod"
         return name
 
+    def _map_term_value(name, value):
+        if name == "arrayFixedVariable" and isinstance(value, list):
+            return [i[0] for i in value]
+        return value
+
     def _map_term(k, v):
+        name = _map_term_name(k)
+        
         return {
-            "name": _map_term_name(k),
-            "value": v
+            "name": name,
+            "value": _map_term_value(name, v)
         }
 
     def _map_term_set():

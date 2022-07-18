@@ -4,24 +4,6 @@
 import datetime
 import typing
 
-from pyactus.funcset import ann
-from pyactus.funcset import capfl
-from pyactus.funcset import cec
-from pyactus.funcset import ceg
-from pyactus.funcset import clm
-from pyactus.funcset import com
-from pyactus.funcset import csh
-from pyactus.funcset import futur
-from pyactus.funcset import fxout
-from pyactus.funcset import lam
-from pyactus.funcset import lax
-from pyactus.funcset import nam
-from pyactus.funcset import optns
-from pyactus.funcset import pam
-from pyactus.funcset import stk
-from pyactus.funcset import swaps
-from pyactus.funcset import swppv
-from pyactus.funcset import ump
 from pyactus.typeset import ContractTermset
 from pyactus.typeset import ContractType
 from pyactus.typeset import Event
@@ -29,24 +11,6 @@ from pyactus.typeset import Event
 
 # Map: contract type <-> function handle.
 _HANDLES = {
-    ContractType.ANN: ann,
-    ContractType.CAPFL: capfl,
-    ContractType.CEC: cec,
-    ContractType.CEG: ceg,
-    ContractType.CLM: clm,
-    ContractType.COM: com,
-    ContractType.CSH: csh,
-    ContractType.FUTUR: futur,
-    ContractType.FXOUT: fxout,
-    ContractType.LAM: lam,
-    ContractType.LAX: lax,
-    ContractType.NAM: nam,
-    ContractType.OPTNS: optns,
-    ContractType.PAM: pam,
-    ContractType.STK: stk,
-    ContractType.SWAPS: swaps,
-    ContractType.SWPPV: swppv,
-    ContractType.UMP: ump,
 }
 
 

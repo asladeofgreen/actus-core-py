@@ -4,6 +4,8 @@ import typing
 import uuid
 
 from pyactus.typeset.enums import ContractType
+from pyactus.typeset.enums import ReferenceRole
+from pyactus.typeset.enums import ReferenceType
 from pyactus.typeset.events import Event
 
 
@@ -54,6 +56,21 @@ class ContractLifeCycleEpisode():
 
     def __str__(self) -> str:
         return f"lifecycle-episode|{self.term_set.contract_type}|{self.timestamp}|{self.uid}"
+
+
+@dataclasses.dataclass
+class ContractReference():
+    """An ACTUS compliant financial contract agreed upon by a set of counter-parties.
+
+    """
+    # Role of reference in respect of parent contract.
+    role: ReferenceRole
+
+    # Type of reference in respect of parent contract.
+    typeof: ReferenceType
+
+    # Actual child contract.
+    child: "Contract"
 
 
 @dataclasses.dataclass

@@ -17,14 +17,17 @@ class TermsetOfCommodity(contracts.ContractTermset):
     This is not a financial contract in its propper sense. However it traks movements of commodities such as oil, gas or even houses. Such commodities can serve as underlyings of commodity futures, guarantees or simply asset positions.
 
     """
-    # Contract Deal Date.
-    contract_deal_date: datetime.datetime = None
-
     # Contract Identifier.
     contract_id: str = None
 
     # Contract Role.
     contract_role: enums.ContractRole = None
+
+    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
+    contract_type: enums.ContractType = enums.ContractType.COM
+
+    # Contract Deal Date.
+    contract_deal_date: datetime.datetime = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -62,5 +65,3 @@ class TermsetOfCommodity(contracts.ContractTermset):
     # Unit.
     unit: enums.Unit = None
 
-    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
-    contract_type: enums.ContractType = enums.ContractType.COM

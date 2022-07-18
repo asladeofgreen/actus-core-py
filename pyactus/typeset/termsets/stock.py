@@ -17,6 +17,15 @@ class TermsetOfStock(contracts.ContractTermset):
     Any instrument which is bought at a certain amount (market price normally) and then follows an index.
 
     """
+    # Contract Identifier.
+    contract_id: str = None
+
+    # Contract Role.
+    contract_role: enums.ContractRole = None
+
+    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
+    contract_type: enums.ContractType = enums.ContractType.STK
+
     # Business Day Convention.
     business_day_convention: enums.BusinessDayConvention = enums.BusinessDayConvention.NOS
 
@@ -26,14 +35,8 @@ class TermsetOfStock(contracts.ContractTermset):
     # Contract Deal Date.
     contract_deal_date: datetime.datetime = None
 
-    # Contract Identifier.
-    contract_id: str = None
-
     # Contract Performance.
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
-
-    # Contract Role.
-    contract_role: enums.ContractRole = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -63,7 +66,7 @@ class TermsetOfStock(contracts.ContractTermset):
     market_value_observed: float = None
 
     # Next Dividend Payment Amount.
-    next_dividend_payment_amount: float = 0.0
+    next_dividend_payment_amount: float = None
 
     # Non Performing Date.
     non_performing_date: datetime.datetime = None
@@ -95,5 +98,3 @@ class TermsetOfStock(contracts.ContractTermset):
     # Termination Date.
     termination_date: datetime.datetime = None
 
-    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
-    contract_type: enums.ContractType = enums.ContractType.STK

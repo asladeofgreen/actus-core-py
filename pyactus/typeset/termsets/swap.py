@@ -17,20 +17,23 @@ class TermsetOfSwap(contracts.ContractTermset):
     Exchange of two basic CT´s (PAM, ANN etc.). Normally one is fixed, the other variable. However all variants possible including different currencies for cross currency swaps, basic swaps or even different principal exchange programs.
 
     """
-    # Contract Deal Date.
-    contract_deal_date: datetime.datetime = None
-
     # Contract Identifier.
     contract_id: str = None
-
-    # Contract Performance.
-    contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
 
     # Contract Role.
     contract_role: enums.ContractRole = None
 
+    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
+    contract_type: enums.ContractType = enums.ContractType.SWAPS
+
+    # Contract Deal Date.
+    contract_deal_date: datetime.datetime = None
+
+    # Contract Performance.
+    contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
+
     # Contract Structure.
-    contract_structure: typing.List[auxiliary.ContractReference] = None
+    contract_structure: typing.List[contracts.ContractReference] = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -45,7 +48,7 @@ class TermsetOfSwap(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 0.0
+    delinquency_rate: float = None
 
     # Delivery Settlement.
     delivery_settlement: enums.DeliverySettlement = enums.DeliverySettlement.D
@@ -83,5 +86,3 @@ class TermsetOfSwap(contracts.ContractTermset):
     # Termination Date.
     termination_date: datetime.datetime = None
 
-    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
-    contract_type: enums.ContractType = enums.ContractType.SWAPS

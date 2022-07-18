@@ -23,6 +23,9 @@ class TermsetOfCash(contracts.ContractTermset):
     # Contract Role.
     contract_role: enums.ContractRole = None
 
+    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
+    contract_type: enums.ContractType = enums.ContractType.CSH
+
     # Creator Identifier.
     creator_id: str = None
 
@@ -35,5 +38,3 @@ class TermsetOfCash(contracts.ContractTermset):
     # Status Date.
     status_date: datetime.datetime = None
 
-    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
-    contract_type: enums.ContractType = enums.ContractType.CSH

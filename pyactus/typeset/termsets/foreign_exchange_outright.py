@@ -17,6 +17,15 @@ class TermsetOfForeignExchangeOutright(contracts.ContractTermset):
     Two parties agree to exchange two fixed cash flows in different currencies at a certain point in time in future.
 
     """
+    # Contract Identifier.
+    contract_id: str = None
+
+    # Contract Role.
+    contract_role: enums.ContractRole = None
+
+    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
+    contract_type: enums.ContractType = enums.ContractType.FXOUT
+
     # Business Day Convention.
     business_day_convention: enums.BusinessDayConvention = enums.BusinessDayConvention.NOS
 
@@ -26,14 +35,8 @@ class TermsetOfForeignExchangeOutright(contracts.ContractTermset):
     # Contract Deal Date.
     contract_deal_date: datetime.datetime = None
 
-    # Contract Identifier.
-    contract_id: str = None
-
     # Contract Performance.
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
-
-    # Contract Role.
-    contract_role: enums.ContractRole = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -51,7 +54,7 @@ class TermsetOfForeignExchangeOutright(contracts.ContractTermset):
     delinquency_period: auxiliary.Period = None
 
     # Delinquency Rate.
-    delinquency_rate: float = 0.0
+    delinquency_rate: float = None
 
     # Delivery Settlement.
     delivery_settlement: enums.DeliverySettlement = enums.DeliverySettlement.D
@@ -110,5 +113,3 @@ class TermsetOfForeignExchangeOutright(contracts.ContractTermset):
     # Termination Date.
     termination_date: datetime.datetime = None
 
-    # Contract Type :: The ContractType is the most important information. It defines the cash flow generating pattern of a contract. The ContractType information in combination with a given state of the risk factors will produce a deterministic sequence of cash flows which are the basis of any financial analysis.
-    contract_type: enums.ContractType = enums.ContractType.FXOUT
