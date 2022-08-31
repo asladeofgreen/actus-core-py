@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class SecuritizationMarketRisk(contracts.ContractTermset)Termset:
+class SecuritizationMarketRiskTermset(core.ContractTermset):
     """Set of applicable terms: SCRMR -> Securitization Market Risk.
 
     Securitiazion contracts where all underlying contracts are treated equal. The buyer of a tranche gets a part of the cash-flows.

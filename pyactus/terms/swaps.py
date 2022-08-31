@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class Swap(contracts.ContractTermset)Termset:
+class SwapTermset(core.ContractTermset):
     """Set of applicable terms: SWAPS -> Swap.
 
     Exchange of two basic CT´s (PAM, ANN etc.). Normally one is fixed, the other variable. However all variants possible including different currencies for cross currency swaps, basic swaps or even different principal exchange programs.
@@ -33,7 +31,7 @@ class Swap(contracts.ContractTermset)Termset:
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
 
     # Contract Structure.
-    contract_structure: typing.List[contracts.ContractReference] = None
+    contract_structure: typing.List[core.ContractReference] = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -45,7 +43,7 @@ class Swap(contracts.ContractTermset)Termset:
     currency: str = None
 
     # Delinquency Period.
-    delinquency_period: auxiliary.Period = None
+    delinquency_period: core.Period = None
 
     # Delinquency Rate.
     delinquency_rate: float = None
@@ -54,7 +52,7 @@ class Swap(contracts.ContractTermset)Termset:
     delivery_settlement: enums.DeliverySettlement = enums.DeliverySettlement.D
 
     # Grace Period.
-    grace_period: auxiliary.Period = None
+    grace_period: core.Period = None
 
     # Market Object Code.
     market_object_code: str = None

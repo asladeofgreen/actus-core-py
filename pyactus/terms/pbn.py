@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class PerpetualBonds(contracts.ContractTermset)Termset:
+class PerpetualBondsTermset(core.ContractTermset):
     """Set of applicable terms: PBN -> Perpetual Bonds.
 
     Bonds without any maturity date. Interest is paid into eternity if is not terminated.

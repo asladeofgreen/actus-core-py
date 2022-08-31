@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class ForeignExchangeOutright(contracts.ContractTermset)Termset:
+class ForeignExchangeOutrightTermset(core.ContractTermset):
     """Set of applicable terms: FXOUT -> Foreign Ex-change Outright.
 
     Two parties agree to exchange two fixed cash flows in different currencies at a certain point in time in future.
@@ -51,7 +49,7 @@ class ForeignExchangeOutright(contracts.ContractTermset)Termset:
     currency2: str = None
 
     # Delinquency Period.
-    delinquency_period: auxiliary.Period = None
+    delinquency_period: core.Period = None
 
     # Delinquency Rate.
     delinquency_rate: float = None
@@ -69,7 +67,7 @@ class ForeignExchangeOutright(contracts.ContractTermset)Termset:
     exercise_date: datetime.datetime = None
 
     # Grace Period.
-    grace_period: auxiliary.Period = None
+    grace_period: core.Period = None
 
     # Market Object Code.
     market_object_code: str = None
@@ -105,7 +103,7 @@ class ForeignExchangeOutright(contracts.ContractTermset)Termset:
     settlement_currency: str = None
 
     # Settlement Period.
-    settlement_period: auxiliary.Period = None
+    settlement_period: core.Period = None
 
     # Status Date.
     status_date: datetime.datetime = None

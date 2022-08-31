@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class CallMoney(contracts.ContractTermset)Termset:
+class CallMoneyTermset(core.ContractTermset):
     """Set of applicable terms: CLM -> Call Money.
 
     Loans that are rolled over as long as they are not called. Once called it has to be paid back after the stipulated notice period.
@@ -60,19 +58,19 @@ class CallMoney(contracts.ContractTermset)Termset:
     cycle_anchor_date_of_rate_reset: datetime.datetime = None
 
     # Cycle Of Fee.
-    cycle_of_fee: auxiliary.Cycle = None
+    cycle_of_fee: core.Cycle = None
 
     # Cycle Of Interest Payment.
-    cycle_of_interest_payment: auxiliary.Cycle = None
+    cycle_of_interest_payment: core.Cycle = None
 
     # Cycle Of Rate Reset.
-    cycle_of_rate_reset: auxiliary.Cycle = None
+    cycle_of_rate_reset: core.Cycle = None
 
     # Day Count Convention.
     day_count_convention: enums.DayCountConvention = None
 
     # Delinquency Period.
-    delinquency_period: auxiliary.Period = None
+    delinquency_period: core.Period = None
 
     # Delinquency Rate.
     delinquency_rate: float = None
@@ -90,10 +88,10 @@ class CallMoney(contracts.ContractTermset)Termset:
     fee_rate: float = None
 
     # Fixing Period.
-    fixing_period: auxiliary.Period = None
+    fixing_period: core.Period = None
 
     # Grace Period.
-    grace_period: auxiliary.Period = None
+    grace_period: core.Period = None
 
     # Initial Exchange Date.
     initial_exchange_date: datetime.datetime = None
@@ -117,7 +115,7 @@ class CallMoney(contracts.ContractTermset)Termset:
     notional_principal: float = None
 
     # Prepayment Period.
-    prepayment_period: auxiliary.Period = None
+    prepayment_period: core.Period = None
 
     # Rate Multiplier.
     rate_multiplier: float = 1.0
@@ -135,5 +133,5 @@ class CallMoney(contracts.ContractTermset)Termset:
     status_date: datetime.datetime = None
 
     # X Day Notice.
-    x_day_notice: auxiliary.Period = None
+    x_day_notice: core.Period = None
 

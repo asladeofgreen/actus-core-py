@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class Margining(contracts.ContractTermset)Termset:
+class MarginingTermset(core.ContractTermset):
     """Set of applicable terms: MAR -> Margining.
 
     A Margining contract traces the value changes and the different margin categories like inital and variation margin.

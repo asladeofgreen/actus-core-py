@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class Option(contracts.ContractTermset)Termset:
+class OptionTermset(core.ContractTermset):
     """Set of applicable terms: OPTNS -> Option.
 
     Calculates straight option pay-off for any basic CT as underlying (PAM, ANN etc.) but also SWAPS, FXOUT, STK and COM. Single, periodic and continuous strike is supported.
@@ -39,7 +37,7 @@ class Option(contracts.ContractTermset)Termset:
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
 
     # Contract Structure.
-    contract_structure: typing.List[contracts.ContractReference] = None
+    contract_structure: typing.List[core.ContractReference] = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -54,10 +52,10 @@ class Option(contracts.ContractTermset)Termset:
     cycle_anchor_date_of_optionality: datetime.datetime = None
 
     # Cycle Of Optionality.
-    cycle_of_optionality: auxiliary.Cycle = None
+    cycle_of_optionality: core.Cycle = None
 
     # Delinquency Period.
-    delinquency_period: auxiliary.Period = None
+    delinquency_period: core.Period = None
 
     # Delinquency Rate.
     delinquency_rate: float = None
@@ -75,7 +73,7 @@ class Option(contracts.ContractTermset)Termset:
     exercise_date: datetime.datetime = None
 
     # Grace Period.
-    grace_period: auxiliary.Period = None
+    grace_period: core.Period = None
 
     # Market Object Code.
     market_object_code: str = None
@@ -120,7 +118,7 @@ class Option(contracts.ContractTermset)Termset:
     settlement_currency: str = None
 
     # Settlement Period.
-    settlement_period: auxiliary.Period = None
+    settlement_period: core.Period = None
 
     # Status Date.
     status_date: datetime.datetime = None

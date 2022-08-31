@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class ConvertibleNote(contracts.ContractTermset)Termset:
+class ConvertibleNoteTermset(core.ContractTermset):
     """Set of applicable terms: BNDCP -> Convertible Note.
 
     Bonds with a call or put option. If option is exercised, underlying bond ceases to exist.

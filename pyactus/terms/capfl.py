@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class CapFloor(contracts.ContractTermset)Termset:
+class CapFloorTermset(core.ContractTermset):
     """Set of applicable terms: CAPFL -> Cap Floors.
 
     Interest rate option expressed in a maximum or minimum interest rate.
@@ -33,7 +31,7 @@ class CapFloor(contracts.ContractTermset)Termset:
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
 
     # Contract Structure.
-    contract_structure: typing.List[contracts.ContractReference] = None
+    contract_structure: typing.List[core.ContractReference] = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -45,13 +43,13 @@ class CapFloor(contracts.ContractTermset)Termset:
     currency: str = None
 
     # Delinquency Period.
-    delinquency_period: auxiliary.Period = None
+    delinquency_period: core.Period = None
 
     # Delinquency Rate.
     delinquency_rate: float = None
 
     # Grace Period.
-    grace_period: auxiliary.Period = None
+    grace_period: core.Period = None
 
     # Life Cap.
     life_cap: float = None

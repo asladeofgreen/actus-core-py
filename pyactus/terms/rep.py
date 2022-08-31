@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class RepurchaseAgreement(contracts.ContractTermset)Termset:
+class RepurchaseAgreementTermset(core.ContractTermset):
     """Set of applicable terms: REP -> Repurchase Agreement.
 
     A Repo contract controls and manages the sale and repurchase of assets on the books.

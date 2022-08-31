@@ -65,38 +65,38 @@ class ContractType(enum.Enum):
     CEC = 17
 
     # Exotic Annuity :: Exotic version of ANN However step ups with respect to (i) Principal, (ii) Interest rates are possible. Highly flexible to match totally irregular principal payments. Principal can also be paid out in steps.
-    ANX = 0
+    ANX = -1
 
     # Convertible Note :: Bonds with a call or put option. If option is exercised, underlying bond ceases to exist.
-    BNDCP = -1
+    BNDCP = -2
 
     # Warrant :: Bonds with a warrant. If option is exercised, underlying bond continues to exist.
-    BNDWR = -2
+    BNDWR = -3
 
     # Credit Default Swap :: A payment is triggered if one or more of the ndelying counterparties defaults.
-    CDSWP = -3
+    CDSWP = -4
 
     # Credit Linked Note :: A credit linked note is a security with an embedded CDSWP
-    CLNTE = -4
+    CLNTE = -5
 
     # Margining :: A Margining contract traces the value changes and the different margin categories like inital and variation margin.
-    MAR = -5
+    MAR = -6
 
     # Exotic Negative Amortizer :: Exotic version of NAM However step ups with respect to (i) Principal, (ii) Interest rates are possible. Highly flexible to match totally irregular principal payments. Principal can also be paid out in steps.
-    NAX = -6
+    NAX = -7
 
     # Perpetual Bonds :: Bonds without any maturity date. Interest is paid into eternity if is not terminated.
-    PBN = -7
+    PBN = -8
 
     # Repurchase Agreement :: A Repo contract controls and manages the sale and repurchase of assets on the books.
-    REP = -8
+    REP = -9
 
     # Securitization Credit Risk :: Securitiazion contracts where contracs are ranked according to credit default. The lower ranked tranches are hit by the first defaults. Only when the lowest tranches are wiped out, the next higher tranch is hit.
-    SCRCR = -9
+    SCRCR = -10
 
     # Securitization Market Risk :: Securitiazion contracts where all underlying contracts are treated equal. The buyer of a tranche gets a part of the cash-flows.
-    SCRMR = -10
+    SCRMR = -11
 
     # Total Return Swap :: A total return swap is a swap agreement in which one party makes payments based on a set rate, either fixed or variable, while the other party makes payments based on the return of an underlying asset, which includes both the income it generates and any capital gains.
-    TRSWP = -11
+    TRSWP = -12
 

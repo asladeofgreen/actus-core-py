@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class Collateral(contracts.ContractTermset)Termset:
+class CollateralTermset(core.ContractTermset):
     """Set of applicable terms: CEC -> Collateral.
 
     Collateral creates a relationship between a collateral an obligee and a debtor, covering the exposure from the debtor with the collateral.
@@ -36,7 +34,7 @@ class Collateral(contracts.ContractTermset)Termset:
     contract_deal_date: datetime.datetime = None
 
     # Contract Structure.
-    contract_structure: typing.List[contracts.ContractReference] = None
+    contract_structure: typing.List[core.ContractReference] = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -63,7 +61,7 @@ class Collateral(contracts.ContractTermset)Termset:
     guaranteed_exposure: enums.GuaranteedExposure = None
 
     # Settlement Period.
-    settlement_period: auxiliary.Period = None
+    settlement_period: core.Period = None
 
     # Status Date.
     status_date: datetime.datetime = None

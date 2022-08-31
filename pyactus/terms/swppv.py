@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class PlainVanillaSwap(contracts.ContractTermset)Termset:
+class PlainVanillaSwapTermset(core.ContractTermset):
     """Set of applicable terms: SWPPV -> Plain Vanilla Swap.
 
     Plain vanilla swaps where the underlyings are always two identical PAM´s however with one leg fixed and the other variable.
@@ -54,10 +52,10 @@ class PlainVanillaSwap(contracts.ContractTermset)Termset:
     cycle_anchor_date_of_rate_reset: datetime.datetime = None
 
     # Cycle Of Interest Payment.
-    cycle_of_interest_payment: auxiliary.Cycle = None
+    cycle_of_interest_payment: core.Cycle = None
 
     # Cycle Of Rate Reset.
-    cycle_of_rate_reset: auxiliary.Cycle = None
+    cycle_of_rate_reset: core.Cycle = None
 
     # Cycle Point Of Rate Reset.
     cycle_point_of_rate_reset: enums.CyclePointOfRateReset = enums.CyclePointOfRateReset.B
@@ -66,7 +64,7 @@ class PlainVanillaSwap(contracts.ContractTermset)Termset:
     day_count_convention: enums.DayCountConvention = None
 
     # Delinquency Period.
-    delinquency_period: auxiliary.Period = None
+    delinquency_period: core.Period = None
 
     # Delinquency Rate.
     delinquency_rate: float = None
@@ -78,10 +76,10 @@ class PlainVanillaSwap(contracts.ContractTermset)Termset:
     end_of_month_convention: enums.EndOfMonthConvention = enums.EndOfMonthConvention.SD
 
     # Fixing Period.
-    fixing_period: auxiliary.Period = None
+    fixing_period: core.Period = None
 
     # Grace Period.
-    grace_period: auxiliary.Period = None
+    grace_period: core.Period = None
 
     # Initial Exchange Date.
     initial_exchange_date: datetime.datetime = None

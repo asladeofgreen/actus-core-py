@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class Guarantee(contracts.ContractTermset)Termset:
+class GuaranteeTermset(core.ContractTermset):
     """Set of applicable terms: CEG -> Guarantee.
 
     Guarantee creates a relationship between a guarantor, an obligee and a debtor, moving the exposure from the debtor to the guarantor.
@@ -39,7 +37,7 @@ class Guarantee(contracts.ContractTermset)Termset:
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
 
     # Contract Structure.
-    contract_structure: typing.List[contracts.ContractReference] = None
+    contract_structure: typing.List[core.ContractReference] = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -60,10 +58,10 @@ class Guarantee(contracts.ContractTermset)Termset:
     cycle_anchor_date_of_fee: datetime.datetime = None
 
     # Cycle Of Fee.
-    cycle_of_fee: auxiliary.Cycle = None
+    cycle_of_fee: core.Cycle = None
 
     # Delinquency Period.
-    delinquency_period: auxiliary.Period = None
+    delinquency_period: core.Period = None
 
     # Delinquency Rate.
     delinquency_rate: float = None
@@ -87,7 +85,7 @@ class Guarantee(contracts.ContractTermset)Termset:
     fee_rate: float = None
 
     # Grace Period.
-    grace_period: auxiliary.Period = None
+    grace_period: core.Period = None
 
     # Guaranteed Exposure.
     guaranteed_exposure: enums.GuaranteedExposure = None
@@ -114,7 +112,7 @@ class Guarantee(contracts.ContractTermset)Termset:
     settlement_currency: str = None
 
     # Settlement Period.
-    settlement_period: auxiliary.Period = None
+    settlement_period: core.Period = None
 
     # Status Date.
     status_date: datetime.datetime = None

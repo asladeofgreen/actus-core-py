@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class CreditLinkedNote(contracts.ContractTermset)Termset:
+class CreditLinkedNoteTermset(core.ContractTermset):
     """Set of applicable terms: CLNTE -> Credit Linked Note.
 
     A credit linked note is a security with an embedded CDSWP

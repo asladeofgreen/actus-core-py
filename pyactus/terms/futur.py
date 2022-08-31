@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class Future(contracts.ContractTermset)Termset:
+class FutureTermset(core.ContractTermset):
     """Set of applicable terms: FUTUR -> Future.
 
     Keeps track of value changes for any basic CT as underlying (PAM, ANN etc. but also FXOUT, STK, COM). Handles margining calls.
@@ -42,7 +40,7 @@ class Future(contracts.ContractTermset)Termset:
     contract_performance: enums.ContractPerformance = enums.ContractPerformance.PF
 
     # Contract Structure.
-    contract_structure: typing.List[contracts.ContractReference] = None
+    contract_structure: typing.List[core.ContractReference] = None
 
     # Counterparty Identifier.
     counterparty_id: str = None
@@ -57,10 +55,10 @@ class Future(contracts.ContractTermset)Termset:
     cycle_anchor_date_of_margining: datetime.datetime = None
 
     # Cycle Of Margining.
-    cycle_of_margining: auxiliary.Cycle = None
+    cycle_of_margining: core.Cycle = None
 
     # Delinquency Period.
-    delinquency_period: auxiliary.Period = None
+    delinquency_period: core.Period = None
 
     # Delinquency Rate.
     delinquency_rate: float = None
@@ -81,7 +79,7 @@ class Future(contracts.ContractTermset)Termset:
     futures_price: float = None
 
     # Grace Period.
-    grace_period: auxiliary.Period = None
+    grace_period: core.Period = None
 
     # Initial Margin.
     initial_margin: float = None
@@ -120,7 +118,7 @@ class Future(contracts.ContractTermset)Termset:
     settlement_currency: str = None
 
     # Settlement Period.
-    settlement_period: auxiliary.Period = None
+    settlement_period: core.Period = None
 
     # Status Date.
     status_date: datetime.datetime = None

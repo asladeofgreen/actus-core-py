@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class SecuritizationCreditRisk(contracts.ContractTermset)Termset:
+class SecuritizationCreditRiskTermset(core.ContractTermset):
     """Set of applicable terms: SCRCR -> Securitization Credit Risk.
 
     Securitiazion contracts where contracs are ranked according to credit default. The lower ranked tranches are hit by the first defaults. Only when the lowest tranches are wiped out, the next higher tranch is hit.

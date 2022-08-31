@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class ExoticNegativeAmortizer(contracts.ContractTermset)Termset:
+class ExoticNegativeAmortizerTermset(core.ContractTermset):
     """Set of applicable terms: NAX -> Exotic Negative Amortizer.
 
     Exotic version of NAM However step ups with respect to (i) Principal, (ii) Interest rates are possible. Highly flexible to match totally irregular principal payments. Principal can also be paid out in steps.

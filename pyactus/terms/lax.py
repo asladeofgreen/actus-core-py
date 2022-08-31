@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class ExoticLinearAmortizer(contracts.ContractTermset)Termset:
+class ExoticLinearAmortizerTermset(core.ContractTermset):
     """Set of applicable terms: LAX -> Exotic Linear Amortizer.
 
     Exotic version of LAM. However step ups with respect to (i) Principal, (ii) Interest rates are possible. Highly flexible to match totally irregular principal payments. Principal can also be paid out in steps.
@@ -39,13 +37,13 @@ class ExoticLinearAmortizer(contracts.ContractTermset)Termset:
     array_cycle_anchor_date_of_rate_reset: typing.List[datetime.datetime] = None
 
     # Array Cycle Of Interest Payment.
-    array_cycle_of_interest_payment: typing.List[auxiliary.Cycle] = None
+    array_cycle_of_interest_payment: typing.List[core.Cycle] = None
 
     # Array Cycle Of Principal Redemption.
-    array_cycle_of_principal_redemption: typing.List[auxiliary.Cycle] = None
+    array_cycle_of_principal_redemption: typing.List[core.Cycle] = None
 
     # Array Cycle Of Rate Reset.
-    array_cycle_of_rate_reset: typing.List[auxiliary.Cycle] = None
+    array_cycle_of_rate_reset: typing.List[core.Cycle] = None
 
     # Array Fixed Variable.
     array_fixed_variable: typing.List[enums.ArrayFixedVariable] = None
@@ -96,16 +94,16 @@ class ExoticLinearAmortizer(contracts.ContractTermset)Termset:
     cycle_anchor_date_of_scaling_index: datetime.datetime = None
 
     # Cycle Of Fee.
-    cycle_of_fee: auxiliary.Cycle = None
+    cycle_of_fee: core.Cycle = None
 
     # Cycle Of Interest Calculation Base.
-    cycle_of_interest_calculation_base: auxiliary.Cycle = None
+    cycle_of_interest_calculation_base: core.Cycle = None
 
     # Cycle Of Optionality.
-    cycle_of_optionality: auxiliary.Cycle = None
+    cycle_of_optionality: core.Cycle = None
 
     # Cycle Of Scaling Index.
-    cycle_of_scaling_index: auxiliary.Cycle = None
+    cycle_of_scaling_index: core.Cycle = None
 
     # Cycle Point Of Interest Payment.
     cycle_point_of_interest_payment: enums.CyclePointOfInterestPayment = enums.CyclePointOfInterestPayment.E
@@ -117,7 +115,7 @@ class ExoticLinearAmortizer(contracts.ContractTermset)Termset:
     day_count_convention: enums.DayCountConvention = None
 
     # Delinquency Period.
-    delinquency_period: auxiliary.Period = None
+    delinquency_period: core.Period = None
 
     # Delinquency Rate.
     delinquency_rate: float = None
@@ -135,10 +133,10 @@ class ExoticLinearAmortizer(contracts.ContractTermset)Termset:
     fee_rate: float = None
 
     # Fixing Period.
-    fixing_period: auxiliary.Period = None
+    fixing_period: core.Period = None
 
     # Grace Period.
-    grace_period: auxiliary.Period = None
+    grace_period: core.Period = None
 
     # Initial Exchange Date.
     initial_exchange_date: datetime.datetime = None
@@ -210,7 +208,7 @@ class ExoticLinearAmortizer(contracts.ContractTermset)Termset:
     prepayment_effect: enums.PrepaymentEffect = enums.PrepaymentEffect.N
 
     # Prepayment Period.
-    prepayment_period: auxiliary.Period = None
+    prepayment_period: core.Period = None
 
     # Price At Purchase Date.
     price_at_purchase_date: float = None

@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class Stock(contracts.ContractTermset)Termset:
+class StockTermset(core.ContractTermset):
     """Set of applicable terms: STK -> Stock.
 
     Any instrument which is bought at a certain amount (market price normally) and then follows an index.
@@ -51,7 +49,7 @@ class Stock(contracts.ContractTermset)Termset:
     cycle_anchor_date_of_dividend: datetime.datetime = None
 
     # Cycle Of Dividend.
-    cycle_of_dividend: auxiliary.Cycle = None
+    cycle_of_dividend: core.Cycle = None
 
     # End Of Month Convention.
     end_of_month_convention: enums.EndOfMonthConvention = enums.EndOfMonthConvention.SD

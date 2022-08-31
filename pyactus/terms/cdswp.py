@@ -3,15 +3,13 @@
 # **********************************
 import dataclasses
 import datetime
-import typing
 
-from pyactus.typeset import enums
-from pyactus.typeset import auxiliary
-from pyactus.typeset import contracts
+from pyactus import core
+from pyactus import enums
 
 
 @dataclasses.dataclass
-class CreditDefaultSwap(contracts.ContractTermset)Termset:
+class CreditDefaultSwapTermset(core.ContractTermset):
     """Set of applicable terms: CDSWP -> Credit Default Swap.
 
     A payment is triggered if one or more of the ndelying counterparties defaults.
