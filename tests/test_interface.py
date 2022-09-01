@@ -60,8 +60,8 @@ _INTERFACE_OF_LIBRARY = {
     _has_exception: set(),
     _has_function: set(),
     _has_member: {
-        "funcset",
-        "typeset",
+        "algos",
+        "types",
     }
 }
 

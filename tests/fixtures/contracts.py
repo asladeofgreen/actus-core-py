@@ -7,7 +7,7 @@ import uuid
 
 import pytest
 
-from pyactus.typeset import ContractType
+from pyactus.types.enums import ContractType
 
 
 # Path to test assets folder.

@@ -1,1 +1,1 @@
-from pyactus.serialisation.json.decoder import decode
+from pyactus.utils.serialisation.json.decoder import decode

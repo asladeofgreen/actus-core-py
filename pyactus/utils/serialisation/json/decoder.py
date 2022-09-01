@@ -2,18 +2,18 @@ import dataclasses
 import datetime
 import typing
 
-from pyactus.typeset import CONTRACT_TERMSETS
-from pyactus.typeset import ENUM_SET
-from pyactus.typeset import Contract
-from pyactus.typeset import ContractIdentifier
-from pyactus.typeset import ContractLifeCycleEpisode
-from pyactus.typeset import ContractReference
-from pyactus.typeset import ContractTermset
-from pyactus.typeset import ContractType
-from pyactus.typeset import Cycle
-from pyactus.typeset import Period
-from pyactus.typeset import ReferenceRole
-from pyactus.typeset import ReferenceType
+from pyactus.types.core import Contract
+from pyactus.types.core import ContractIdentifier
+from pyactus.types.core import ContractLifeCycleEpisode
+from pyactus.types.core import ContractReference
+from pyactus.types.core import ContractTermset
+from pyactus.types.core import Cycle
+from pyactus.types.core import Period
+from pyactus.types.enums import ContractType
+from pyactus.types.enums import ReferenceRole
+from pyactus.types.enums import ReferenceType
+from pyactus.types.enums import ENUM_SET
+from pyactus.types.terms import CONTRACT_TERMSETS
 from pyactus.utils import convertors
 
 

@@ -1,4 +1,4 @@
-from pyactus.typeset import ContractType
+from pyactus.types.enums import ContractType
 
 
 def test_contract_set(test_contracts):
