@@ -32,7 +32,7 @@ class ContractIdentifier():
 
 
 @dataclasses.dataclass
-class ContractLifeCycleEpisode():
+class LifeCycleEpisode():
     """Encapsulates information related to episodes in  a contract life cycle.
 
     """
@@ -94,7 +94,7 @@ class Contract():
     identifiers: typing.List[ContractIdentifier]
 
     # Life cycle history of terms & events.
-    life_cycle: typing.List[ContractLifeCycleEpisode]
+    life_cycle: typing.List[LifeCycleEpisode]
 
     # Universally unique identifier.
     uid: str = str(uuid.uuid4())

@@ -27,8 +27,8 @@ def _yield_contracts() -> typing.Iterator[typing.Tuple[ContractType, dict]]:
     
     """
     for contract_type in ContractType:
-        # if contract_type != ContractType.PAM:
-        #     continue
+        if contract_type != ContractType.PAM:
+            continue
         for obj in _read_contract_fixtures(contract_type):
             yield _map_contract_fixture(contract_type, obj)
 

@@ -29,7 +29,7 @@ class Event():
     epoch_offset: float
 
     # The timestamp of the event.
-    event_time: datetime.datetime
+    event_timestamp: datetime.datetime
 
     # The type of the event. Different types have their own business logic in terms of payoff and state transition functions.
     event_type: EventType
