@@ -4,11 +4,11 @@ import inspect
 import pyactus
 
 
-def test_version_of_library():
+def test_that_version_of_library_is_most_recent():
     assert pyactus.__version__ == "0.1.0"
 
 
-def test_exports_of_library():
+def test_that_library_exports_are_most_recent():
     for assertor, members in _INTERFACE_OF_LIBRARY.items():
         for member in members:
             assertor(pyactus, member)
