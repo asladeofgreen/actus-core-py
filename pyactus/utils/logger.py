@@ -1,0 +1,67 @@
+import datetime as dt
+
+
+# Set of logging levels.
+LOG_LEVEL_DEBUG = 'DEBUG'
+LOG_LEVEL_INFO = 'INFO'
+LOG_LEVEL_WARNING = 'WARN'
+LOG_LEVEL_ERROR = 'ERROR'
+LOG_LEVEL_CRITICAL = 'CRITICAL'
+LOG_LEVEL_FATAL = 'FATAL'
+
+# Defaults.
+_DEFAULT_APP = 'PYACTUS'
+
+# Text to display when passed a null message.
+_NULL_MSG = '-------------------------------------------------------------------------------'
+
+
+def log(msg=None, level=LOG_LEVEL_INFO, app=_DEFAULT_APP):
+    """Outputs a message to log.
+
+    :param str msg: Message to be written to log.
+    :param str level: Message level (e.g. INFO).
+    :param str app: Application emitting log message (e.g. libIGCM).
+
+    """
+    # TODO use structlog/logstash.
+    print(_get_formatted_message(msg, level, app))
+
+
+def log_error(err, app=_DEFAULT_APP):
+    """Logs a runtime error.
+
+    :param str err: Error to be written to log.
+    :param str app: Application emitting log message (e.g. libIGCM).
+
+    """
+    msg = '!! RUNTIME ERROR !! :: '
+    if issubclass(BaseException, err.__class__):
+        msg += '{} :: {}'.format(err.__class__, err)
+    else:
+        msg += '{}'.format(err)
+    log(msg, LOG_LEVEL_ERROR, app)
+
+
+def log_warning(err, app=_DEFAULT_APP):
+    """Logs a runtime warning.
+
+    :param str err: Error to be written to log.
+    :param str app: Application emitting log message (e.g. libIGCM).
+
+    """
+    if issubclass(BaseException, err.__class__):
+        msg = '{} :: {}'.format(err.__class__, err)
+    else:
+        msg = '{}'.format(err)
+    log(msg, LOG_LEVEL_WARNING, app)
+
+
+def _get_formatted_message(msg, level, app):
+    """Returns a message formatted for logging.
+
+    """
+    if msg is None:
+        return _NULL_MSG
+    else:
+        return f"{dt.datetime.utcnow()} [{level}] :: {app} :: {str(msg).strip()}"

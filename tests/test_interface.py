@@ -5,7 +5,7 @@ import pyactus
 
 
 def test_version_of_library():
-    assert pyactus.__version__ == "0.0.0"
+    assert pyactus.__version__ == "0.1.0"
 
 
 def test_exports_of_library():

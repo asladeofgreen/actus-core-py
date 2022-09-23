@@ -20,31 +20,31 @@ class Event():
 
     """
     # The Contract ID of the contract which created the event.
-    contract_id: str
+    contract_id: str = None
 
     # The currency in which the event payoff is scheduled.
-    currency: str
+    currency: str = None
 
     # Time offset within context of an epoch.
-    epoch_offset: float
+    epoch_offset: float = None
 
     # The timestamp of the event.
-    event_timestamp: datetime.datetime
+    event_timestamp: datetime.datetime = datetime.datetime.utcnow()
 
     # The type of the event. Different types have their own business logic in terms of payoff and state transition functions.
-    event_type: EventType
+    event_type: EventType = None
 
     # The event state-transition function.
-    f_state_transition: typing.Callable
+    f_state_transition: typing.Callable = None
 
     # The event pay-off function.
-    f_payoff: typing.Callable
+    f_payoff: typing.Callable = None
 
     # The event payoff (if any). Is zero if no payoff needs be settled for the event.
-    payoff: float
+    payoff: float = None
 
     # The scheduled timestamp for updating event payoff and post-event state.
-    schedule_time: datetime.datetime
+    schedule_time: datetime.datetime = None
 
     # The post-event state. Results from applying the event’s state transition function to the pre-event state. 
-    state: StateSpace
+    state: StateSpace = None

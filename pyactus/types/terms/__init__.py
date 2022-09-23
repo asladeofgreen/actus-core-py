@@ -2,7 +2,9 @@
 # N.B. Auto-generated using actus-mp
 # **********************************
 import dataclasses
+import typing
 
+from pyactus.types.core.contracts import ContractTermset
 from pyactus.types.enums import ContractType
 from pyactus.types.terms.ann import AnnuityTermset
 from pyactus.types.terms.anx import ExoticAnnuityTermset
@@ -35,8 +37,9 @@ from pyactus.types.terms.swppv import PlainVanillaSwapTermset
 from pyactus.types.terms.trswp import TotalReturnSwapTermset
 from pyactus.types.terms.ump import UndefinedMaturityProfileTermset
 
+
 # Map: contract type <-> contract field set.
-CONTRACT_FIELDSETS = {
+CONTRACT_FIELDSETS: typing.Dict[ContractTermset, set] = {
     AnnuityTermset: {i.name: i for i in dataclasses.fields(AnnuityTermset)},
     ExoticAnnuityTermset: {i.name: i for i in dataclasses.fields(ExoticAnnuityTermset)},
     ConvertibleNoteTermset: {i.name: i for i in dataclasses.fields(ConvertibleNoteTermset)},
@@ -70,7 +73,7 @@ CONTRACT_FIELDSETS = {
 }
 
 # Map: contract type <-> contract term set.
-CONTRACT_TERMSETS = {
+CONTRACT_TERMSETS: typing.Dict[ContractType, ContractTermset] = {
     ContractType.ANN: AnnuityTermset,
     ContractType.ANX: ExoticAnnuityTermset,
     ContractType.BNDCP: ConvertibleNoteTermset,
