@@ -1,7 +1,6 @@
-from pyactus.types.enums import ContractType
+import typing
 
-
-def test_contract_set(test_contracts):
+def test_that_test_contracts_can_be_read_from_fsys(test_contracts: typing.List[dict]):
     for fixture in test_contracts:
         assert isinstance(fixture, dict)
         for key in {"contract_type", "identifiers", "lifecycle", "uid"}:

@@ -4,6 +4,16 @@ import inspect
 import pyactus
 
 
+def test_version_of_library():
+    assert pyactus.__version__ == "0.0.0"
+
+
+def test_exports_of_library():
+    for assertor, members in _INTERFACE_OF_LIBRARY.items():
+        for member in members:
+            assertor(pyactus, member)
+
+
 def _has_class(mod, cls):
     """Asserts that a container exposes a class.
 
@@ -64,16 +74,6 @@ _INTERFACE_OF_LIBRARY = {
         "types",
     }
 }
-
-
-def test_version_of_library():
-    assert pyactus.__version__ == "0.0.0"
-
-
-def test_exports_of_library():
-    for assertor, members in _INTERFACE_OF_LIBRARY.items():
-        for member in members:
-            assertor(pyactus, member)
 
 
 def _test_exports(module, interface):
