@@ -4,6 +4,36 @@
 import datetime
 import typing
 
+from pyactus.algos import algos_of_ann
+from pyactus.algos import algos_of_anx
+from pyactus.algos import algos_of_bndcp
+from pyactus.algos import algos_of_bndwr
+from pyactus.algos import algos_of_capfl
+from pyactus.algos import algos_of_cdswp
+from pyactus.algos import algos_of_cec
+from pyactus.algos import algos_of_ceg
+from pyactus.algos import algos_of_clm
+from pyactus.algos import algos_of_clnte
+from pyactus.algos import algos_of_com
+from pyactus.algos import algos_of_csh
+from pyactus.algos import algos_of_futur
+from pyactus.algos import algos_of_fxout
+from pyactus.algos import algos_of_lam
+from pyactus.algos import algos_of_lax
+from pyactus.algos import algos_of_mar
+from pyactus.algos import algos_of_nam
+from pyactus.algos import algos_of_nax
+from pyactus.algos import algos_of_optns
+from pyactus.algos import algos_of_pam
+from pyactus.algos import algos_of_pbn
+from pyactus.algos import algos_of_rep
+from pyactus.algos import algos_of_scrcr
+from pyactus.algos import algos_of_scrmr
+from pyactus.algos import algos_of_stk
+from pyactus.algos import algos_of_swaps
+from pyactus.algos import algos_of_swppv
+from pyactus.algos import algos_of_trswp
+from pyactus.algos import algos_of_ump
 from pyactus.types.core import ContractTermset
 from pyactus.types.core import Event
 from pyactus.types.enums import ContractType
@@ -11,6 +41,36 @@ from pyactus.types.enums import ContractType
 
 # Map: contract type <-> function handle.
 _HANDLES = {
+    ContractType.ANN: algos_of_ann,
+    ContractType.ANX: algos_of_anx,
+    ContractType.BNDCP: algos_of_bndcp,
+    ContractType.BNDWR: algos_of_bndwr,
+    ContractType.CAPFL: algos_of_capfl,
+    ContractType.CDSWP: algos_of_cdswp,
+    ContractType.CEC: algos_of_cec,
+    ContractType.CEG: algos_of_ceg,
+    ContractType.CLM: algos_of_clm,
+    ContractType.CLNTE: algos_of_clnte,
+    ContractType.COM: algos_of_com,
+    ContractType.CSH: algos_of_csh,
+    ContractType.FUTUR: algos_of_futur,
+    ContractType.FXOUT: algos_of_fxout,
+    ContractType.LAM: algos_of_lam,
+    ContractType.LAX: algos_of_lax,
+    ContractType.MAR: algos_of_mar,
+    ContractType.NAM: algos_of_nam,
+    ContractType.NAX: algos_of_nax,
+    ContractType.OPTNS: algos_of_optns,
+    ContractType.PAM: algos_of_pam,
+    ContractType.PBN: algos_of_pbn,
+    ContractType.REP: algos_of_rep,
+    ContractType.SCRCR: algos_of_scrcr,
+    ContractType.SCRMR: algos_of_scrmr,
+    ContractType.STK: algos_of_stk,
+    ContractType.SWAPS: algos_of_swaps,
+    ContractType.SWPPV: algos_of_swppv,
+    ContractType.TRSWP: algos_of_trswp,
+    ContractType.UMP: algos_of_ump,
 }
 
 
@@ -60,3 +120,9 @@ def get_schedule(
     handle = _HANDLES[contract_type]
 
     return handle.get_schedule(to_date, term_set)
+
+
+__all__ = [
+    execute_step,
+    get_schedule
+]

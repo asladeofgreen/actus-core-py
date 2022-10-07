@@ -76,6 +76,3 @@ class EventType(enum.Enum):
     # Settlement :: Settlement of an exercised contractual claim
     STD = 21
 
-    PI = -1
-    IPFX = -2
-    IPFL = -3
