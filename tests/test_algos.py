@@ -4,8 +4,8 @@ import pytest
 
 from pyactus import algos
 from pyactus import codecs
+from pyactus.types.core import ContractTermset
 from pyactus.types.enums import ContractType
-from pyactus.types.terms import ContractTermset
 from pyactus.types.terms import CONTRACT_TERMSETS
 
 

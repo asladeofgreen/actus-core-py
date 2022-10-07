@@ -4,36 +4,36 @@
 import datetime
 import typing
 
-from pyactus.algos import algos_of_ann
-from pyactus.algos import algos_of_anx
-from pyactus.algos import algos_of_bndcp
-from pyactus.algos import algos_of_bndwr
-from pyactus.algos import algos_of_capfl
-from pyactus.algos import algos_of_cdswp
-from pyactus.algos import algos_of_cec
-from pyactus.algos import algos_of_ceg
-from pyactus.algos import algos_of_clm
-from pyactus.algos import algos_of_clnte
-from pyactus.algos import algos_of_com
-from pyactus.algos import algos_of_csh
-from pyactus.algos import algos_of_futur
-from pyactus.algos import algos_of_fxout
-from pyactus.algos import algos_of_lam
-from pyactus.algos import algos_of_lax
-from pyactus.algos import algos_of_mar
-from pyactus.algos import algos_of_nam
-from pyactus.algos import algos_of_nax
-from pyactus.algos import algos_of_optns
-from pyactus.algos import algos_of_pam
-from pyactus.algos import algos_of_pbn
-from pyactus.algos import algos_of_rep
-from pyactus.algos import algos_of_scrcr
-from pyactus.algos import algos_of_scrmr
-from pyactus.algos import algos_of_stk
-from pyactus.algos import algos_of_swaps
-from pyactus.algos import algos_of_swppv
-from pyactus.algos import algos_of_trswp
-from pyactus.algos import algos_of_ump
+from pyactus.algos import ann as ann_algos
+from pyactus.algos import anx as anx_algos
+from pyactus.algos import bndcp as bndcp_algos
+from pyactus.algos import bndwr as bndwr_algos
+from pyactus.algos import capfl as capfl_algos
+from pyactus.algos import cdswp as cdswp_algos
+from pyactus.algos import cec as cec_algos
+from pyactus.algos import ceg as ceg_algos
+from pyactus.algos import clm as clm_algos
+from pyactus.algos import clnte as clnte_algos
+from pyactus.algos import com as com_algos
+from pyactus.algos import csh as csh_algos
+from pyactus.algos import futur as futur_algos
+from pyactus.algos import fxout as fxout_algos
+from pyactus.algos import lam as lam_algos
+from pyactus.algos import lax as lax_algos
+from pyactus.algos import mar as mar_algos
+from pyactus.algos import nam as nam_algos
+from pyactus.algos import nax as nax_algos
+from pyactus.algos import optns as optns_algos
+from pyactus.algos import pam as pam_algos
+from pyactus.algos import pbn as pbn_algos
+from pyactus.algos import rep as rep_algos
+from pyactus.algos import scrcr as scrcr_algos
+from pyactus.algos import scrmr as scrmr_algos
+from pyactus.algos import stk as stk_algos
+from pyactus.algos import swaps as swaps_algos
+from pyactus.algos import swppv as swppv_algos
+from pyactus.algos import trswp as trswp_algos
+from pyactus.algos import ump as ump_algos
 from pyactus.types.core import ContractTermset
 from pyactus.types.core import Event
 from pyactus.types.enums import ContractType
@@ -41,36 +41,36 @@ from pyactus.types.enums import ContractType
 
 # Map: contract type <-> function handle.
 _HANDLES = {
-    ContractType.ANN: algos_of_ann,
-    ContractType.ANX: algos_of_anx,
-    ContractType.BNDCP: algos_of_bndcp,
-    ContractType.BNDWR: algos_of_bndwr,
-    ContractType.CAPFL: algos_of_capfl,
-    ContractType.CDSWP: algos_of_cdswp,
-    ContractType.CEC: algos_of_cec,
-    ContractType.CEG: algos_of_ceg,
-    ContractType.CLM: algos_of_clm,
-    ContractType.CLNTE: algos_of_clnte,
-    ContractType.COM: algos_of_com,
-    ContractType.CSH: algos_of_csh,
-    ContractType.FUTUR: algos_of_futur,
-    ContractType.FXOUT: algos_of_fxout,
-    ContractType.LAM: algos_of_lam,
-    ContractType.LAX: algos_of_lax,
-    ContractType.MAR: algos_of_mar,
-    ContractType.NAM: algos_of_nam,
-    ContractType.NAX: algos_of_nax,
-    ContractType.OPTNS: algos_of_optns,
-    ContractType.PAM: algos_of_pam,
-    ContractType.PBN: algos_of_pbn,
-    ContractType.REP: algos_of_rep,
-    ContractType.SCRCR: algos_of_scrcr,
-    ContractType.SCRMR: algos_of_scrmr,
-    ContractType.STK: algos_of_stk,
-    ContractType.SWAPS: algos_of_swaps,
-    ContractType.SWPPV: algos_of_swppv,
-    ContractType.TRSWP: algos_of_trswp,
-    ContractType.UMP: algos_of_ump,
+    ContractType.ANN: ann_algos,
+    ContractType.ANX: anx_algos,
+    ContractType.BNDCP: bndcp_algos,
+    ContractType.BNDWR: bndwr_algos,
+    ContractType.CAPFL: capfl_algos,
+    ContractType.CDSWP: cdswp_algos,
+    ContractType.CEC: cec_algos,
+    ContractType.CEG: ceg_algos,
+    ContractType.CLM: clm_algos,
+    ContractType.CLNTE: clnte_algos,
+    ContractType.COM: com_algos,
+    ContractType.CSH: csh_algos,
+    ContractType.FUTUR: futur_algos,
+    ContractType.FXOUT: fxout_algos,
+    ContractType.LAM: lam_algos,
+    ContractType.LAX: lax_algos,
+    ContractType.MAR: mar_algos,
+    ContractType.NAM: nam_algos,
+    ContractType.NAX: nax_algos,
+    ContractType.OPTNS: optns_algos,
+    ContractType.PAM: pam_algos,
+    ContractType.PBN: pbn_algos,
+    ContractType.REP: rep_algos,
+    ContractType.SCRCR: scrcr_algos,
+    ContractType.SCRMR: scrmr_algos,
+    ContractType.STK: stk_algos,
+    ContractType.SWAPS: swaps_algos,
+    ContractType.SWPPV: swppv_algos,
+    ContractType.TRSWP: trswp_algos,
+    ContractType.UMP: ump_algos,
 }
 
 

@@ -4,8 +4,8 @@
 import datetime
 import typing
 
-from pyactus.core import Event
-from pyactus.terms import MarginingTermset as ContractTermset
+from pyactus.types.core import Event
+from pyactus.types.terms import MarginingTermset as ContractTermset
 
 
 def execute_step(events: typing.List[Event], term_set: ContractTermset, observer: object) -> typing.List[Event]:
