@@ -4,6 +4,7 @@ import enum
 from pyactus.types.core import Cycle
 from pyactus.types.core import Period
 from pyactus.types.enums import ENUM_SET
+from pyactus.utils.convertors import to_iso_time_interval
 
 
 # Set of datetime formats aginst which to parse an externally defined date.
@@ -19,7 +20,22 @@ _DATETIME_FORMATS = {
 }
 
 
-def to_datetime(val: object) -> datetime.datetime:
+def to_cycle(val: object, _) -> Cycle:
+    """Decodes a domain time cycle from a string representation, e.g. P1ML0.
+
+    """
+    val = val.split("L")[0]
+
+    return to_iso_time_interval(val)
+
+
+def to_datetime(val: str) -> datetime.datetime:
+    """Converts an arbitrary value into a datetime representation.
+
+    :param val: An arbitrary value being converted.
+    :returns: A datetime representation.
+
+    """
     if val is None:
         return datetime.datetime.utcnow()
 
@@ -32,20 +48,12 @@ def to_datetime(val: object) -> datetime.datetime:
     raise ValueError(f"Invalid value: cannot parse to a datetime :: {val}")
 
 
-def to_time_cycle(val: object) -> Cycle:
-    raise NotImplementedError()
-
-
-def to_time_period(val: object) -> Period:
-    raise NotImplementedError()
-
-
 def to_enum(val: object, enum_type: type) -> enum.Enum:
     """Converts an arbitrary value into an enumeration memeber.
-    
+
     :param val: An arbitrary value being converted.
     :param enum_type: Type of target enum.
-    :returns: Pointer to an enum member. 
+    :returns: Pointer to an enum member.
 
     """
     if isinstance(val, int):
@@ -64,14 +72,34 @@ def to_enum(val: object, enum_type: type) -> enum.Enum:
 
 
 def to_float(val: object) -> float:
+    """Converts an arbitrary value into a float representation.
+
+    :param val: An arbitrary value being converted.
+    :returns: A float representation.
+
+    """
     try:
         return float(val)
     except ValueError as err:
-        print(888, val)
         raise err
 
 
+def to_period(val: object, _) -> Period:
+    """Decodes a domain time period from a string representation, e.g. P2D.
+
+    """
+    val = val.split("L")[0]
+
+    return to_iso_time_interval(val)
+
+
 def to_str(val: object) -> str:
+    """Converts an arbitrary value into a string representation.
+
+    :param val: An arbitrary value being converted.
+    :returns: A string representation.
+
+    """
     try:
         return str(val)
     except ValueError as err:
@@ -79,15 +107,10 @@ def to_str(val: object) -> str:
 
 
 def to_timedelta(val: object) -> datetime.timedelta:
+    """Converts an arbitrary value into a timedelta representation.
+
+    :param val: An arbitrary value being converted.
+    :returns: A timedelta representation.
+
+    """
     raise NotImplementedError()
-
-
-# Map: Type <-> Mapping function.
-_VALUE_MAPPERS = {
-    Cycle: to_time_cycle,
-    Period: to_time_period,
-    datetime.datetime: to_datetime,
-    datetime.timedelta: to_timedelta,
-    float: to_float,
-    str: to_str
-} | {i: to_enum for i in ENUM_SET}

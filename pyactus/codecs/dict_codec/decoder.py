@@ -23,7 +23,7 @@ def decode(encoded: dict, typeof: object):
 
 def _decode_contract_termset(encoded: dict):
     """Decodes a contract termset from a simple python dictionary.
-    
+
     """
     contract_type = ContractType[encoded["contractType"]]
     entity_kls = CONTRACT_TERMSETS[contract_type]
@@ -33,7 +33,7 @@ def _decode_contract_termset(encoded: dict):
 
 def _decode_event(encoded: dict):
     """Decodes a contract event from a simple python dictionary.
-    
+
     """
     return dataclass_decoder.decode_entity(encoded, Event)
 

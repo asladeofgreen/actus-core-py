@@ -23,7 +23,11 @@ _CODECS = {
 }
 
 
-def decode(encoded: object, typeof: object, encoding: EncodingType = EncodingType.JSON) -> object:
+def decode(
+    encoded: object,
+    typeof: object,
+    encoding: EncodingType = EncodingType.JSON
+) -> object:
     """Decodes a domain entity from a serialised representation.
 
     :param encoded: A domain entity instance encoded in a supported format.
@@ -43,7 +47,10 @@ def decode(encoded: object, typeof: object, encoding: EncodingType = EncodingTyp
             return codec.decode(encoded, typeof)
 
 
-def encode(entity: object, encoding: EncodingType = EncodingType.JSON) -> typing.Union[dict, str]:
+def encode(
+    entity: object,
+    encoding: EncodingType = EncodingType.JSON
+) -> typing.Union[dict, str]:
     """Encodes a domain entity as a JSON string.
 
     :param entity: A domain entity instance.
