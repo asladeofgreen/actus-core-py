@@ -1,6 +1,8 @@
 import datetime
 import re
 
+import isodate
+
 
 def to_camel_case(name: str, separator: str = '_'):
     """Converts passed name to camel case.
@@ -30,10 +32,20 @@ def to_interest_rate(val: str) -> float:
     return float(val) / 100
 
 
+def to_iso_time_interval(val: str) -> datetime.datetime:
+    """Converts passed value to an ISO time interval.
+
+    :param val: A character encoded representation of an ISO 3601 time interval.
+    :returns: An ISO compliant datetime.
+
+    """
+    return isodate.parse_duration(val)
+
+
 def to_iso_datetime(val: str) -> datetime.datetime:
     """Converts passed value to an ISO date time.
 
-    :param val: A character encoded representation of an ISO date time.
+    :param val: A character encoded representation of an ISO 3601date time.
     :returns: An ISO compliant datetime.
 
     """
@@ -43,7 +55,7 @@ def to_iso_datetime(val: str) -> datetime.datetime:
 def to_iso_datetime_T00(val: str):
     """Converts passed value to an ISO date time with time set to 00:00:00.000.
 
-    :param val: A character encoded representation of an ISO date time.
+    :param val: A character encoded representation of an ISO 3601 date time.
     :returns: An ISO compliant datetime.
 
     """
@@ -53,7 +65,7 @@ def to_iso_datetime_T00(val: str):
 def to_iso_datetime_T24(val: str):
     """Converts passed value to an ISO date time with time set to 23:59:59.000.
 
-    :param val: A character encoded representation of an ISO date time.
+    :param val: A character encoded representation of an ISO 3601 date time.
     :returns: An ISO compliant datetime.
 
     """

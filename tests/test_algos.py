@@ -1,3 +1,4 @@
+from multiprocessing.sharedctypes import Value
 import typing
 
 import pytest
@@ -19,3 +20,5 @@ def test_that_a_contract_event_sequence_can_be_calculated(test_contracts: typing
         event_sequence = []
         algos.execute_step(contract_type, event_sequence, termset, None)
 
+
+    raise ValueError()

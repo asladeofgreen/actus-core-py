@@ -2,11 +2,14 @@ import dataclasses
 import datetime
 import enum
 
+import isodate
+
 from pyactus.codecs.utils import value_convertor as convertor
 from pyactus.types.core import Cycle
 from pyactus.types.core import Period
 from pyactus.types.enums import ENUM_SET
 from pyactus.utils import logger
+from pyactus.utils.convertors import to_iso_time_interval
 from pyactus.utils.convertors import to_pascal_case
 
 
@@ -39,7 +42,10 @@ def decode_entity(encoded: dict, entity_kls: type):
 
 
 def _get_attr_value(entity: object, fld: dataclasses.Field, encoded: dict):
-    attr_name = to_pascal_case(fld.name)
+    """Returns value of a field declared within a domain entity.
+    
+    """
+    attr_name: str = to_pascal_case(fld.name)
     for encoded_name in encoded.keys():
         if encoded_name != attr_name:
             continue
@@ -53,19 +59,32 @@ def _get_attr_value(entity: object, fld: dataclasses.Field, encoded: dict):
         try:
             return fld_mapper(encoded[encoded_name], fld.type)
         except NotImplementedError:
-            logger.log_warning(f"Field {fld.name} of type {fld.type} is unmappeable")
+            logger.log_warning(f"Unsupported mapping: '{type(entity).__name__}.{fld.name}'")
             break
 
 
 def _to_time_cycle(val: object, _) -> Cycle:
-    raise NotImplementedError()
+    """Decodes a domain time cycle from a string representation, e.g. P1ML0.
+    
+    """
+    val = val.split("L")[0]
+
+    return to_iso_time_interval(val)
 
 
 def _to_time_period(val: object, _) -> Period:
-    raise NotImplementedError()
+    """Decodes a domain time period from a string representation, e.g. P2D.
+    
+    """
+    val = val.split("L")[0]
+
+    return to_iso_time_interval(val)
 
 
 def _to_enum(val: object, enum_type: type) -> enum.Enum:
+    """Decodes an enum value from a string representation, e.g. ANN.
+    
+    """
     if isinstance(val, int):
         try:
             return enum_type(val)
