@@ -40,7 +40,7 @@ from pyactus.types.enums import ContractType
 
 
 # Map: contract type <-> function handle.
-_HANDLES = {
+_HANDLERS = {
     ContractType.ANN: ann_algos,
     ContractType.ANX: anx_algos,
     ContractType.BNDCP: bndcp_algos,
@@ -88,9 +88,9 @@ def execute_step(
     :returns: The evaluated events and post-event contract states.
 
     """
-    handle = _HANDLES[contract_type]
+    handler = _HANDLERS[contract_type]
 
-    return handle.execute_step(events, term_set, observer)
+    return handler.execute_step(events, term_set, observer)
 
 
 def get_schedule(
@@ -117,9 +117,9 @@ def get_schedule(
     :returns: An event sequence upto to_date.
 
     """
-    handle = _HANDLES[contract_type]
+    handler = _HANDLERS[contract_type]
 
-    return handle.get_schedule(to_date, term_set)
+    return handler.get_schedule(to_date, term_set)
 
 
 __all__ = [
