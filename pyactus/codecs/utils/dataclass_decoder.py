@@ -1,13 +1,11 @@
 import dataclasses
 import datetime
-import enum
 
 from pyactus.codecs.utils import value_convertor as convertor
 from pyactus.types.core import Cycle
 from pyactus.types.core import Period
 from pyactus.types.enums import ENUM_SET
 from pyactus.utils import logger
-from pyactus.utils.convertors import to_iso_time_interval
 from pyactus.utils.convertors import to_pascal_case
 
 
