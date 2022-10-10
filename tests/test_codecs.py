@@ -8,15 +8,15 @@ from pyactus.types.terms import CONTRACT_TERMSETS
 
 def test_that_contract_termsets_can_be_decoded_from_a_dictionary(test_contracts: typing.List[dict]):
     for contract_type, fixture in test_contracts:
-        encoded = fixture["terms"]
-        decoded = codecs.decode(encoded, ContractTermset)
+        encoded: dict = fixture["terms"]
+        decoded: ContractTermset = codecs.decode(encoded, ContractTermset, codecs.EncodingType.DICTIONARY)
         assert isinstance(decoded, CONTRACT_TERMSETS[contract_type])
 
 
 def test_that_event_sequences_can_be_decod_from_a_dictionaryed(test_contracts: typing.List[dict]):
     for contract_type, fixture in test_contracts:
         encoded: typing.List[dict] = fixture["event_sequence"]
-        decoded: typing.List[Event] = codecs.decode(encoded, Event)
+        decoded: typing.List[Event] = codecs.decode(encoded, Event, codecs.EncodingType.DICTIONARY)
         assert isinstance(decoded, list)
         assert len(decoded) == len(encoded)
         for item in decoded:

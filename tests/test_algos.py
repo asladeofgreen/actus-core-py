@@ -15,7 +15,7 @@ def test_that_a_contract_event_sequence_can_be_calculated(test_contracts: typing
         if contract_type != ContractType.ANN:
             continue
 
-        termset = codecs.decode(fixture["terms"], ContractTermset)
+        termset = codecs.decode(fixture["terms"], ContractTermset, codecs.EncodingType.DICTIONARY)
 
         event_sequence = []
         algos.execute_step(contract_type, event_sequence, termset, None)
