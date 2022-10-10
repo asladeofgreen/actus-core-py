@@ -1,10 +1,8 @@
 import enum
 import typing
 
-from pyactus.codecs.dict_codec import decode as _decode_from_dict
-from pyactus.codecs.dict_codec import encode as _encode_to_dict
-from pyactus.codecs.json_codec import decode as _decode_from_json
-from pyactus.codecs.json_codec import decode as _encode_to_json
+from pyactus.codecs import dict_codec
+from pyactus.codecs import json_codec
 
 
 class EncodingType(enum.Enum):
@@ -18,26 +16,31 @@ class EncodingType(enum.Enum):
     JSON = 1
 
 
-def decode(encoded: object, entity_type: object, encoding: EncodingType = EncodingType.JSON) -> object:
+# Map: Encoding type <-> serializer.
+_CODECS = {
+    EncodingType.DICTIONARY: dict_codec,
+    EncodingType.JSON: json_codec,
+}
+
+
+def decode(encoded: object, typeof: object, encoding: EncodingType = EncodingType.JSON) -> object:
     """Decodes a domain entity from a serialised representation.
 
     :param encoded: A domain entity instance encoded in a supported format.
-    :param entity_type: Type of domain entity being decoded.
+    :param typeof: Type of domain entity being decoded.
     :param encoding: Type of domain encoding to apply.
     :returns: A decoded domain entity.
 
     """
-    if encoding == EncodingType.DICTIONARY:
-        decoder = _decode_from_dict
-    elif encoding == EncodingType.JSON:
-        decoder = _decode_from_json
-    else:
+    try:
+        codec = _CODECS[encoding]
+    except KeyError:
         raise ValueError(f"Unsupported encoding format: {encoding}.")
-
-    if isinstance(encoded, list):
-        return [decoder(i, entity_type) for i in encoded]
     else:
-        return decoder(encoded, entity_type)
+        if isinstance(encoded, list):
+            return [codec.decode(i, typeof) for i in encoded]
+        else:
+            return codec.decode(encoded, typeof)
 
 
 def encode(entity: object, encoding: EncodingType = EncodingType.JSON) -> typing.Union[dict, str]:
@@ -48,14 +51,12 @@ def encode(entity: object, encoding: EncodingType = EncodingType.JSON) -> typing
     :returns: A domain entity encoded accordingly.
 
     """
-    if encoding == EncodingType.DICTIONARY:
-        encoder = _encode_to_dict
-    elif encoding == EncodingType.JSON:
-        encoder = _encode_to_json
+    try:
+        codec = _CODECS[encoding]
+    except KeyError:
+        raise ValueError(f"Unsupported encoding format: {encoding}.")
     else:
-        raise ValueError("Unsupported encoding format.")
-
-    return encoder(entity)
+        return codec.encode(entity)
 
 
 __all__ = [
